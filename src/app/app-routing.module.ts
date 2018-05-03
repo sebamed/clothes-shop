@@ -2,17 +2,17 @@ import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'pages', pathMatch: 'full' },
-  { path: '**', redirectTo: 'pages' },
+    { path: '', loadChildren: './pages/pages.module#PagesModule' },
+    { path: '**', redirectTo: '' }
 ];
 
 const config: ExtraOptions = {
-  useHash: true,
+    useHash: true,
 };
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, config)],
-  exports: [RouterModule],
+    imports: [RouterModule.forRoot(routes, config)],
+    exports: [RouterModule],
 })
 export class AppRoutingModule {
 }
