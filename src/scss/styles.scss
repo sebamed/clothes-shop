@@ -4,7 +4,7 @@
 @import '~scss/vars';
 
 // fonts
-@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 
 // fonts
@@ -15,10 +15,14 @@
 
 body {
     background-color: #f0f0f0;
-    font-family: 'PT Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
-h1, h2, .burbank {
+h1 {
+    font-size: 4rem;
+}
+
+h1, h2, h3, .burbank {
     font-family: 'Burbank';
 }
 
