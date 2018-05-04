@@ -11,6 +11,7 @@ nav {
         li {
             padding: 0 1rem;
             a {
+                text-transform: uppercase;
                 color: $colBlueBasic;
                 &:hover {
                     color: $colBlueHover;
