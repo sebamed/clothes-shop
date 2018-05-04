@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
-    selector: 'app-home',
+    selector: 'pages-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss']
 })

@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 
 // routing
 import { AppRoutingModule } from './app-routing.module';
+import { PagesModule } from './pages/pages.module';
 
 // components
 import { AppComponent } from './app.component';
@@ -17,7 +18,8 @@ import { MenuComponent } from './pages/shared/menu/menu.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
