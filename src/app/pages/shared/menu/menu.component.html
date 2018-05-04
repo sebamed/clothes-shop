@@ -1,2 +1,43 @@
-Radi menu
+<nav class="navbar navbar-expand-lg">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <a class="navbar-brand" href="#">LOGO AND BRAND</a>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">News</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0 search-form">
+            <input class="mr-sm-2 input-search" placeholder="Search...">
+            <button class="btn btn-search my-2 my-sm-0">Go</button>
+        </form>
+        <div class="circle search" (click)="toggleSearch()">
+            <img src="/assets/images/lens.svg" alt="" />
+        </div>
+        <div class="circle profile">
+            <img src="/assets/images/man.svg" alt="" />
+        </div>
+        <div class="circle cart">
+            <img src="/assets/images/cart.svg" alt="" />
+        </div>
+    </div>
+</nav>
+
+
+<!-- ROUTES -->
 <router-outlet></router-outlet>

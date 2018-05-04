@@ -1,1 +1,24 @@
 @import '~bootstrap/dist/css/bootstrap.min.css'; // bootstrap
+
+// local scss
+@import '~scss/vars';
+
+// fonts
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+
+body {
+    background-color: #f0f0f0;
+    font-family: 'PT Sans', sans-serif;
+}
+
+a, img {
+    -ms-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+*:focus{
+    outline:0px !important;
+    -webkit-appearance:none;
+}
