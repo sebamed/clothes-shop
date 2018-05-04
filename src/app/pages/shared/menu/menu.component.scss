@@ -2,7 +2,7 @@
 
 nav {
     border-bottom: 1px solid #e7e7e7;
-    padding: 2.4rem;
+    padding: 2rem;
 
     ul {
         
@@ -43,6 +43,10 @@ nav {
 
 .navbar-brand {
     margin-right: 4rem;
+    font-size: 3rem;
+    padding: .7rem 0 0 1rem;
+
+    line-height: 3rem !important;
 }
 
 .circle {
