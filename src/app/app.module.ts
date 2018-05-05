@@ -1,6 +1,8 @@
 // modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+// NgStickyModule
+import { NgStickyDirective } from 'ng-sticky';
 
 // routing
 import { AppRoutingModule } from './app-routing.module';
@@ -14,7 +16,8 @@ import { MenuComponent } from './pages/shared/menu/menu.component';
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
+    NgStickyDirective
   ],
   imports: [
     BrowserModule,
