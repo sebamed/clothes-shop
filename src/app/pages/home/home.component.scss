@@ -131,27 +131,29 @@ h3 {
     }
 }
 
-// SREDI OVO DA NE BUDE GADNO
-.leftRs {
+.carousel-nav {
     position: absolute;
     margin: auto;
     top: 0;
     bottom: 0;
-    width: 50px;
-    height: 50px;
-    box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
-    border-radius: 999px;
+    background-color: transparent;
+    border: none;
+    padding: 0 1rem;
+    color: #ffffff69;
+    font-size: 6rem;
+    i {
+        margin: 0;
+    }
+
+    &:hover {
+        color: #ffffffb9;
+    }
+}
+
+.left-nav {
     left: 0;
 }
 
-.rightRs {
-    position: absolute;
-    margin: auto;
-    top: 0;
-    bottom: 0;
-    width: 50px;
-    height: 50px;
-    box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
-    border-radius: 999px;
+.right-nav {
     right: 0;
 }
