@@ -73,6 +73,7 @@ nav {
 
 .spacer {
     padding: 72px 0;
+    background: linear-gradient(90deg,$colBlueBasic,$colPurpleBasic); // GRADIENT
 }
 
 @media (max-width: 900px) {
