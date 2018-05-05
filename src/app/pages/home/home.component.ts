@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NguCarousel } from '@ngu/carousel';
 
+import * as icons from 'font-awesome-list';
+
 @Component({
     selector: 'pages-home',
     templateUrl: './home.component.html',
@@ -24,6 +26,9 @@ export class HomeComponent implements OnInit, OnDestroy {
         loop: false,
         custom: 'banner'
       }
+      let a = icons.all();
+      
+      console.log(a[0]);
     }
   
     public myfunc(event: Event) {
