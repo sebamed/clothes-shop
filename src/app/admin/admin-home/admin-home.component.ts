@@ -1,5 +1,7 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 
+declare var $: any;
+
 @Component({
     selector: 'admin-home',
     templateUrl: './admin-home.component.html',
@@ -14,5 +16,4 @@ export class AdminHomeComponent implements OnInit, OnDestroy {
     ngOnDestroy() {
 
     }
-
 }
