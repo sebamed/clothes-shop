@@ -15,7 +15,8 @@ import { OurServicesComponent } from './home/our-services/our-services.component
     declarations: [
         HomeComponent,
         AboutComponent,
-        OurServicesComponent
+        OurServicesComponent,
+
     ],
     imports: [
         PagesRoutingModule,

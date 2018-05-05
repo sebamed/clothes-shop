@@ -1,17 +1,18 @@
 // modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
+import { AdminModule } from './admin/admin.module';
+import { PagesModule } from './pages/pages.module';
 // NgStickyModule
 import { NgStickyDirective } from 'ng-sticky';
 
 // routing
 import { AppRoutingModule } from './app-routing.module';
-import { PagesModule } from './pages/pages.module';
 
 // components
 import { AppComponent } from './app.component';
 import { MenuComponent } from './pages/shared/menu/menu.component';
-
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MenuComponent } from './pages/shared/menu/menu.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    PagesModule
+    PagesModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]
