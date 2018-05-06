@@ -1,0 +1,41 @@
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+
+import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+
+import * as icons from 'font-awesome-list';
+
+@Component({
+    selector: 'admin-icon-modal',
+    templateUrl: './icons-modal.component.html',
+    styleUrls: ['./icons-modal.component.scss']
+})
+export class IconModalComponent implements OnInit, OnDestroy {
+
+    @Input() currentIcon;
+
+    iconsNames: String[] = [];
+
+    constructor(public activeModal: NgbActiveModal, private modalService: NgbModal) { }
+
+    ngOnInit() {
+        this.setIconsNames();
+    }
+
+    ngOnDestroy() {
+
+    }
+
+    open() {
+        const modalRef = this.modalService.open(IconModalComponent);
+    }
+
+    setIconsNames(){
+        for(let i = 0; i < icons.all().length; i++){
+            this.iconsNames.push(icons.all()[i].id);
+        }
+    }
+
+    setCurrent(icon: String){
+        this.currentIcon = icon;
+    }
+}

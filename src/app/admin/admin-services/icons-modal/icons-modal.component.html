@@ -1,0 +1,25 @@
+<div class="modal-header">
+    <h2 class="modal-title">Choose service icon:</h2>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <ul>
+        <li (click)="setCurrent(icon)" *ngFor="let icon of iconsNames | paginate: { itemsPerPage: 35, currentPage: p }">
+            <i class="fa fa-{{icon}}"></i>
+            <p>{{icon}}</p>
+        </li>
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </ul>
+    
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+    <button type="button" class="btn btn-outline-dark" (click)="saveIcon()">Save</button>
+</div>
+<div class="current" ngDefaultControl [(ngModel)]="currentIcon">
+    <p>Current icon:</p>
+    <i class="fa fa-{{currentIcon}}"></i>
+    <p>{{currentIcon}}</p>
+</div>
