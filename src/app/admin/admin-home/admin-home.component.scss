@@ -1,31 +1,7 @@
 @import '~scss/vars';
 
-#home {
-    background-color: $colGrayDarkBackground;
-    padding: 5rem;
-}
-
-.welcome {
-
-    margin-bottom: 5rem;
-
-    span {
-        color: $colTitleYellow;
-    }
-
-    h1, h3 {
-        color: #fff;
-    }
-    h1 {
-        font-size: 6rem;
-    }
-
-    h3 {
-        letter-spacing: 1px;
-    }
-}
-
 .service {
+    cursor: pointer;
     -ms-transition: all .3s ease-in-out;
     -webkit-transition: all .3s ease-in-out;
     -o-transition: all .3s ease-in-out;

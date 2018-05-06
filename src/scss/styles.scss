@@ -33,6 +33,31 @@ a, img, .smooth, h1, h2 {
     transition: all .3s ease-in-out;
 }
 
+#home, #services {
+    background-color: $colGrayDarkBackground;
+    padding: 5rem;
+}
+
+.welcome {
+
+    margin-bottom: 5rem;
+
+    span {
+        color: $colTitleYellow;
+    }
+
+    h1, h3 {
+        color: #fff;
+    }
+    h1 {
+        font-size: 6rem;
+    }
+
+    h3 {
+        letter-spacing: 1px;
+    }
+}
+
 .btn {
     text-transform: uppercase;
 }
