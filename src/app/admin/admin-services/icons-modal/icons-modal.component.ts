@@ -21,6 +21,7 @@ export class IconModalComponent implements OnInit, OnDestroy {
     constructor(public activeModal: NgbActiveModal, private modalService: NgbModal) { }
 
     ngOnInit() {
+        this.setCurrentIcon();
         this.setIconsNames();
     }
 
@@ -32,6 +33,11 @@ export class IconModalComponent implements OnInit, OnDestroy {
         const modalRef = this.modalService.open(IconModalComponent);
     }
 
+    saveCurrent(){
+        this.currentService.icon = this.currentIcon;
+        this.activeModal.close();
+    }
+
     setIconsNames(){
         for(let i = 0; i < icons.all().length; i++){
             this.iconsNames.push(icons.all()[i].id);
@@ -40,5 +46,9 @@ export class IconModalComponent implements OnInit, OnDestroy {
 
     setCurrent(icon: String){
         this.currentIcon = icon;
+    }
+
+    setCurrentIcon(){
+        this.currentIcon = this.currentService.icon;
     }
 }

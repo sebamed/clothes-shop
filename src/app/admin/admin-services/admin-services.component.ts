@@ -25,8 +25,9 @@ export class AdminServicesComponent implements OnInit, OnDestroy {
 
     }
 
-    openModal() {
+    openModal(service: IService) {
         const typesModalRef = this._modal.open(IconModalComponent);
+        typesModalRef.componentInstance.currentService = service;
     }
 
     getAllServices() {
