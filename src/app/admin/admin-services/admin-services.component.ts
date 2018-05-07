@@ -38,4 +38,12 @@ export class AdminServicesComponent implements OnInit, OnDestroy {
             },
             () => console.log(this.services));
     }
+
+    saveAllServices() {
+        this._services.saveAllServices(this.services).subscribe(res => {
+            console.log(res + " uspesno poslato!");
+        },
+            error => console.log(error),
+            () => console.log("proveribazu sad"));
+    }
 }
