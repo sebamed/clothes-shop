@@ -19,13 +19,15 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './pages/shared/menu/menu.component';
 import { IconModalComponent } from './admin/admin-services/icons-modal/icons-modal.component';
 import { ServicesService } from './services/services.service';
+import { FilterPipe } from './admin/pipe/filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     NgStickyDirective,
-    IconModalComponent
+    IconModalComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

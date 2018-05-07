@@ -8,14 +8,11 @@ import { AdminComponent } from './admin.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 
-
-// components
-
 @NgModule({
     declarations: [
         AdminComponent,
         AdminHomeComponent,
-        AdminServicesComponent
+        AdminServicesComponent,
     ],
     imports: [
         AdminRoutingModule,

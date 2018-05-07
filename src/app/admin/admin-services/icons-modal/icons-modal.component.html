@@ -5,14 +5,15 @@
     </button>
 </div>
 <div class="modal-body">
+    <input ngDefaultControl [(ngModel)]="searchIcon" id="search" type="search" class="search-bar" placeholder="search icon...">
     <ul>
-        <li (click)="setCurrent(icon)" *ngFor="let icon of iconsNames | paginate: { itemsPerPage: 35, currentPage: p }">
+        <li (click)="setCurrent(icon)" *ngFor="let icon of iconsNames | paginate: { itemsPerPage: 35, currentPage: p } | filter : searchIcon">
             <i class="fa fa-{{icon}}"></i>
             <p>{{icon}}</p>
         </li>
         <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </ul>
-    
+
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>

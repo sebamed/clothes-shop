@@ -16,6 +16,8 @@ export class IconModalComponent implements OnInit, OnDestroy {
 
     currentIcon: String;
 
+    searchIcon: String = "";
+
     iconsNames: String[] = [];
 
     constructor(public activeModal: NgbActiveModal, private modalService: NgbModal) { }
