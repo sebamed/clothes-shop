@@ -8,58 +8,20 @@
             </div>
         </div>
         <div class="row edit">
-            <div class="col-md-4">
+            <div class="col-md-4" *ngFor="let service of services; let i = index">
                 <div class="edit-service">
                     <div class="edit-icon" (click)="openModal()">
-                        <i class="fa fa-search"></i>
+                        <i ngDefaultControl [(ngModel)]="services[i].icon" class="fa fa-{{ service.icon }}"></i>
                     </div>
                     <div class="edit-text">
                         <form>
                             <div class="form-group">
                                 <label for="title">Service title:</label>
-                                <input class="form-control" id="title" placeholder="Service">
+                                <input maxlength="15" ngDefaultControl [(ngModel)]="services[i].title" class="form-control" id="title" placeholder="{{ service.title }}" name="title">
                             </div>
                             <div class="form-group">
                                 <label for="description">Service description:</label>
-                                <textarea class="form-control" id="description" rows="3"></textarea>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="edit-service">
-                    <div class="edit-icon">
-                        <i class="fa fa-bars"></i>
-                    </div>
-                    <div class="edit-text">
-                        <form>
-                            <div class="form-group">
-                                <label for="title">Service title:</label>
-                                <input class="form-control" id="title" placeholder="Drugo nesto">
-                            </div>
-                            <div class="form-group">
-                                <label for="description">Service description:</label>
-                                <textarea class="form-control" id="description" rows="3"></textarea>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="edit-service">
-                    <div class="edit-icon">
-                        <i class="fa fa-repeat"></i>
-                    </div>
-                    <div class="edit-text">
-                        <form>
-                            <div class="form-group">
-                                <label for="title">Service title:</label>
-                                <input class="form-control" id="title" placeholder="Trece">
-                            </div>
-                            <div class="form-group">
-                                <label for="description">Service description:</label>
-                                <textarea class="form-control" id="description" rows="3"></textarea>
+                                <textarea ngDefaultControl [(ngModel)]="services[i].text" placeholder="{{ service.text }} " class="form-control" id="description" rows="3" name="text"></textarea>
                             </div>
                         </form>
                     </div>
@@ -76,17 +38,17 @@
             </div>
         </div>
         <div class="row preview">
-            <div class="col-md-4" *ngFor="let service of services">
+            <div class="col-md-4" *ngFor="let service of services; let i = index">
                 <div class="service">
                     <div class="title">
-                        <h2>{{ service.title }}</h2>
+                        <h2 ngDefaultControl [(ngModel)]="services[i].title">{{ service.title }}</h2>
                     </div>
                     <div class="service-info">
                         <div class="service-icon">
-                            <i class="fa fa-{{ service.icon }}"></i>
+                            <i ngDefaultControl [(ngModel)]="services[i].icon" class="fa fa-{{ service.icon }}"></i>
                         </div>
                         <div class="service-text">
-                            <p>{{ service.text }}</p>
+                            <p ngDefaultControl [(ngModel)]="services[i].text">{{ service.text }}</p>
                         </div>
                     </div>
                 </div>

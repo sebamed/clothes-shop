@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 // modules
 import { PagesRoutingModule } from './pages-routing.module';
 import { NguCarouselModule } from '@ngu/carousel';
-
+import { CommonModule } from '@angular/common';
 
 // components
 import { HomeComponent } from './home/home.component';
@@ -20,7 +20,8 @@ import { OurServicesComponent } from './home/our-services/our-services.component
     ],
     imports: [
         PagesRoutingModule,
-        NguCarouselModule
+        NguCarouselModule,
+        CommonModule
     ]
 })
 export class PagesModule {
