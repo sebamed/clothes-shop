@@ -18,6 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './pages/shared/menu/menu.component';
 import { IconModalComponent } from './admin/admin-services/icons-modal/icons-modal.component';
+import { ServicesService } from './services/services.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { IconModalComponent } from './admin/admin-services/icons-modal/icons-mod
     NgxPaginationModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ServicesService],
   bootstrap: [AppComponent],
   entryComponents: [IconModalComponent]
 })

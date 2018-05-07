@@ -3,6 +3,7 @@ import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 import * as icons from 'font-awesome-list';
+import { IService } from '../../model/service.interface';
 
 @Component({
     selector: 'admin-icon-modal',
@@ -11,7 +12,9 @@ import * as icons from 'font-awesome-list';
 })
 export class IconModalComponent implements OnInit, OnDestroy {
 
-    @Input() currentIcon;
+    @Input() currentService: IService;
+
+    currentIcon: String;
 
     iconsNames: String[] = [];
 
