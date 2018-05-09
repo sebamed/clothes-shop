@@ -64,7 +64,6 @@ a, img, .smooth, h1, h2 {
 
 *:focus{
     outline:0px !important;
-    -webkit-appearance:none;
 }
 
 .green {
@@ -81,4 +80,8 @@ a, img, .smooth, h1, h2 {
 
 .fav-blue {
     background-color: $colFavBlue;
+}
+
+.spacer {
+    padding: 3rem 0;
 }

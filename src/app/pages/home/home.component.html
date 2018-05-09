@@ -1,5 +1,6 @@
 <ngu-carousel [inputs]="carouselOne" (carouselLoad)="myfunc($event)">
     <ngu-item NguCarouselItem class="carousel-item odd">
+        <div class="spacer"></div>
         <div class="item-title-odd">
             <h1>NEKI TITL OVDE IDE!</h1>
             <h3>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam harum ad officiis odit, assumenda minima quos
@@ -19,7 +20,7 @@
         </div>
     </ngu-item>
     <ngu-item NguCarouselItem class="carousel-item even">
-
+        <div class="spacer"></div>
         <div class="item-specs-even">
             <img src="https://cdn.shopify.com/s/files/1/0187/6386/products/S18PK04_BLUE_FRONT_9296dc80-c98b-4cd1-9ce8-137a2fc2a285.png?v=1518825211"
                 alt="" />
@@ -40,12 +41,17 @@
         </div>
     </ngu-item>
     <ngu-item NguCarouselItem>
+        <div class="spacer"></div>
         TRECI SLAJD
     </ngu-item>
 
 
-    <button NguCarouselPrev class="carousel-nav left-nav"><i class="fa fa-angle-left"></i></button>
-    <button NguCarouselNext class="carousel-nav right-nav"><i class="fa fa-angle-right"></i></button>
+    <button NguCarouselPrev class="carousel-nav left-nav">
+        <i class="fa fa-angle-left"></i>
+    </button>
+    <button NguCarouselNext class="carousel-nav right-nav">
+        <i class="fa fa-angle-right"></i>
+    </button>
 </ngu-carousel>
 
 <home-services></home-services>

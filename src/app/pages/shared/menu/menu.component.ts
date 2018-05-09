@@ -15,10 +15,10 @@ export class MenuComponent implements OnInit, OnDestroy {
     ngOnInit() {
         $('.search-form').hide();
         $(window).on('scroll', function () {
-            if($('nav').offset().top > 70){
-                $('nav').css({'padding-top':'.7rem', 'padding-bottom':'.7rem'});
+            if (!($('nav').offset().top > 70)) {
+                $('nav').css({ 'padding-top': '.3rem', 'padding-bottom': '.3rem', 'background-color': 'transparent', 'box-shadow': 'none' });
             } else {
-                $('nav').css({'padding':'2rem'});
+                $('nav').css({ 'padding': '1.5rem 2rem', 'background-color': '#1F2F52', 'box-shadow': '0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2)' });
             }
         });
     }
