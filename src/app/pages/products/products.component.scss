@@ -45,4 +45,17 @@
             width: 15rem;
         }
     }
+
+    .btn-add-to-cart {
+        margin: 0 1rem 1.5rem 1rem;
+        background-color: transparent;
+        border: 1px solid #ddd;
+        padding: 1rem;
+        font-size: .8rem;
+        i {
+            color: $colTitleYellow;
+            margin-right: .5rem;
+            font-size: 1rem;
+        }
+    }
 }
