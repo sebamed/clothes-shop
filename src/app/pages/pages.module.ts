@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { OurServicesComponent } from './home/our-services/our-services.component';
+import { ProductsComponent } from './products/products.component';
 
 
 @NgModule({
@@ -16,7 +17,7 @@ import { OurServicesComponent } from './home/our-services/our-services.component
         HomeComponent,
         AboutComponent,
         OurServicesComponent,
-
+        ProductsComponent
     ],
     imports: [
         PagesRoutingModule,
