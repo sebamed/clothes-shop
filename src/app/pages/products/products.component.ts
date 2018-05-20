@@ -12,7 +12,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-
+        
     }
 
 }
