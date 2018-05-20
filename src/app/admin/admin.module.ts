@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AdminServicesComponent } from './admin-services/admin-services.component';
 import { AdminComponent } from './admin.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { AddProductComponent } from './admin-products/add-product/add-product.component';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
         AdminComponent,
         AdminHomeComponent,
         AdminServicesComponent,
+        AddProductComponent
     ],
     imports: [
         AdminRoutingModule,
