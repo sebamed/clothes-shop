@@ -1,5 +1,8 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { curr } from './currencies';
+import { IProduct } from "../../model/product.interface";
+
+declare var $: any;
 
 @Component({
     selector: 'admin-add-product',
@@ -12,16 +15,14 @@ export class AddProductComponent implements OnInit, OnDestroy {
     // dodaj model produkta i stavi
     // da su propertiji i ovde ispod i u html-u njegovi
 
+    product: IProduct = {
+
+    }
+
     allCurrencies;
 
-    title: String;
-    desc: String;
-    price: Number;
-    decimal: Number;
-    currency: String;
-    discount: Number;
-
     ngOnInit() {
+        this.product.isPublic = false;
         this.allCurrencies = curr;
     }
 
@@ -29,8 +30,17 @@ export class AddProductComponent implements OnInit, OnDestroy {
 
     }
 
-    setCurrency(value){
-        this.currency = value;
+    setCurrency(value) {
+        this.product.currency = value;
+    }
+
+    addNew() {
+        // todo:
+        // post request nakon provere polja
+    }
+
+    togglePublish() {
+        this.product.isPublic = !this.product.isPublic;
     }
 
 }
