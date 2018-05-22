@@ -23,6 +23,27 @@ nav {
             } 
         }
     }
+
+    .nav-icons {
+        ul {
+            list-style-type: none;
+            padding: 1rem 2rem;
+            li {
+                border-left: 1px solid #192642;
+                display: inline;
+                padding: 0 2rem;
+                i {
+                    color: #6d7edf;
+                    font-size: 1rem;
+                    &:hover {
+                        color: #8696ec;
+                    }
+                }
+                
+            }
+        }
+
+    }
 }
 
 .input-search {
