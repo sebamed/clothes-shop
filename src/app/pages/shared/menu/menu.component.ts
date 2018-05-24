@@ -1,4 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { UserService } from '../../../services/user.service';
+import { IUser } from '../../../model/user.interface';
+import { Subscription } from 'rxjs';
 
 
 declare var $: any;
@@ -12,7 +15,19 @@ export class MenuComponent implements OnInit, OnDestroy {
 
     search: boolean = true;
 
+    currentUser: IUser;
+
+    currentUserUpdateSubscription: Subscription;
+
+    constructor(private _user: UserService) {
+
+    }
+
     ngOnInit() {
+        this.currentUserUpdateSubscription = this._user.currentUserUpdated.subscribe(res => {
+            this.currentUser = this._user.getCurrentUser();
+        });
+        this.currentUser = this._user.getCurrentUser();
         $('.search-form').hide();
         $(window).on('scroll', function () {
             if (!($('nav').offset().top > 70)) {
@@ -24,10 +39,20 @@ export class MenuComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-
+        try {
+            this.currentUserUpdateSubscription.unsubscribe();
+        } catch (e) {
+            console.log(e);
+        }
     }
 
-
+    setCurrentUser() {
+        if (this._user.getCurrentUser() != null) {
+            this.currentUser = this._user.getCurrentUser();
+        } else {
+            this.currentUser = {};
+        }
+    }
 
     toggleSearch() {
         if (this.search) {
@@ -36,5 +61,9 @@ export class MenuComponent implements OnInit, OnDestroy {
             $('.search-form').hide("slide", { direction: "right" }, 500);
         }
         this.search = !this.search;
+    }
+
+    userCheck(){
+        console.log(this.currentUser);
     }
 }

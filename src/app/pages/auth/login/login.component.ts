@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { IUserLoginDTO } from "../../../model/dto/userLogin.dto";
 import { UserService } from "../../../services/user.service";
+import { IUser } from "../../../model/user.interface";
+import { Location } from "@angular/common";
 
 @Component({
     selector: 'app-login',
@@ -13,7 +15,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     userLoginDTO: IUserLoginDTO = {};
 
-    constructor(private _user: UserService) {
+    constructor(private _user: UserService, private _location: Location) {
 
     }
 
@@ -39,8 +41,8 @@ export class LoginComponent implements OnInit, OnDestroy {
             if(this.keepMeLoggedIn){
                 console.log("success");
                 localStorage.setItem("currentUser", JSON.stringify(this._user.getCurrentUser()));
-            }
-
+            } 
+            this._location.back();
             // change route with logged user
         } else {
 

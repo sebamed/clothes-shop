@@ -32,9 +32,30 @@ nav {
                 border-left: 1px solid #192642;
                 display: inline;
                 padding: 0 2rem;
+                .dropdown {
+                    display: inline;
+                    .dropdown-menu {
+                        margin: 1rem 0;
+                        border: 1px solid $colGrayDark;
+                        p {
+                            font-size: .7rem;
+                            margin: 1rem 1rem;
+                            border-bottom: 1px solid #e7e7e7;
+                        }
+                        .dropdown-item {
+                            color: $colGrayDarkBackground;
+                            font-size: .7rem;
+                            cursor: pointer;
+                            &:hover {
+                                background-color: #ebebeb;
+                            }
+                        }
+                    }
+                }
                 i {
                     color: #6d7edf;
                     font-size: 1rem;
+                    cursor: pointer;
                     &:hover {
                         color: #8696ec;
                     }
