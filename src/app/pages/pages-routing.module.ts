@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './shared/menu/menu.component';
 import { AboutComponent } from './about/about.component';
 import { ProductsComponent } from './products/products.component';
+import { LoginComponent } from './auth/login/login.component';
 
 const routes: Routes = [
   {
@@ -11,7 +12,12 @@ const routes: Routes = [
   },
   { path: 'about', component: AboutComponent },
   { path: 'products', component: ProductsComponent },
-  { path: '**', redirectTo: 'pages' },
+  { path: 'auth', children: [
+    { path: '',  redirectTo: 'login', pathMatch: 'full' },
+    { path: 'login', component: LoginComponent},
+    // dodaj register
+  ]},
+  { path: '**', redirectTo: 'pages' }
 ];
 
 @NgModule({

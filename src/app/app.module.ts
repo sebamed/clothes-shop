@@ -20,6 +20,7 @@ import { MenuComponent } from './pages/shared/menu/menu.component';
 import { IconModalComponent } from './admin/admin-services/icons-modal/icons-modal.component';
 import { ServicesService } from './services/services.service';
 import { FilterPipe } from './admin/pipe/filter.pipe';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { FilterPipe } from './admin/pipe/filter.pipe';
     NgxPaginationModule,
     FormsModule
   ],
-  providers: [ServicesService],
+  providers: [ServicesService, UserService],
   bootstrap: [AppComponent],
   entryComponents: [IconModalComponent]
 })

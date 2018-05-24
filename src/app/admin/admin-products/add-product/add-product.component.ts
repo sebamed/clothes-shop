@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { curr } from './currencies';
-import { IProduct } from "../../model/product.interface";
+import { IProduct } from "../../../model/product.interface";
 
 declare var $: any;
 

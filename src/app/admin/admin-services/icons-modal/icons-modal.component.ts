@@ -3,7 +3,7 @@ import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 import * as icons from 'font-awesome-list';
-import { IService } from '../../model/service.interface';
+import { IService } from '../../../model/service.interface';
 
 @Component({
     selector: 'admin-icon-modal',

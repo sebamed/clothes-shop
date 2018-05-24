@@ -18,13 +18,14 @@
     padding: 4rem 1rem;
     .edit-service {
         .edit-text {
-            background-color: #fff;
-            padding: 3rem 2rem;
+            background-color: $colGrayDarkBackground;
+            padding: 2rem;
             border: 1px solid $colGrayDarkBackground;
             border-radius: 5px;
         }
         .edit-icon {
             background-color: $colGrayDarkBackground;
+            border: 1px solid $colTitleYellow;
             position: absolute;
             width: 70px;
             height: 70px;

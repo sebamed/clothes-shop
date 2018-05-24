@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ServicesService } from '../../../services/services.service';
-import { IService } from '../../../admin/model/service.interface';
+import { IService } from '../../../model/service.interface';
 
 @Component({
     selector: 'home-services',

@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from "@angular/core";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { IconModalComponent } from "./icons-modal/icons-modal.component";
 import { ServicesService } from "../../services/services.service";
-import { IService } from "../model/service.interface";
+import { IService } from "../../model/service.interface";
 
 @Component({
     selector: 'admin-services',

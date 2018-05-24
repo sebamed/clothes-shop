@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { OurServicesComponent } from './home/our-services/our-services.component';
 import { ProductsComponent } from './products/products.component';
+import { LoginComponent } from './auth/login/login.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,12 +19,14 @@ import { ProductsComponent } from './products/products.component';
         HomeComponent,
         AboutComponent,
         OurServicesComponent,
-        ProductsComponent
+        ProductsComponent,
+        LoginComponent
     ],
     imports: [
         PagesRoutingModule,
         NguCarouselModule,
-        CommonModule
+        CommonModule,
+        FormsModule
     ]
 })
 export class PagesModule {

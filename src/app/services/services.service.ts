@@ -3,7 +3,7 @@ import { Http, Headers, Response, ResponseContentType } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
-import { IService } from "../admin/model/service.interface";
+import { IService } from "../model/service.interface";
 
 @Injectable()
 export class ServicesService {
