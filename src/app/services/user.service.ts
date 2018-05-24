@@ -64,5 +64,6 @@ export class UserService {
         if (localStorage.getItem("currentUser") != null) {
             localStorage.clear();
         }
+        this.currentUserUpdated.emit();
     }
 }
