@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
     // todo:
     // dodaj da se user nakon logovanja json.stringify i ulazi u local storage
     // i kad god se refreshuje app da ovde postavlja current user-a u User servisu
-    if (localStorage.getItem("currentUser") != null) {
+    if (localStorage.getItem("currentUser") != undefined && localStorage.getItem("currentUser") != null) {
       this._user.setCurrentUser(JSON.parse(localStorage.getItem("currentUser")));
       console.log(this._user.currentUser);
     } else {

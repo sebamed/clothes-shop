@@ -32,12 +32,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
 
     login() {
-        if (this._user.login(this.userLoginDTO) != null) {
-            // success
-            if(this.keepMeLoggedIn){
-                console.log("success");
-                localStorage.setItem("currentUser", JSON.stringify(this._user.getCurrentUser()));
-            } 
+        if (this._user.login(this.userLoginDTO, this.keepMeLoggedIn) != null) {
             this._location.back();
             // change route with logged user
         } else {

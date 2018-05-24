@@ -19,18 +19,25 @@ export class UserService {
 
     }
 
-    login(userLoginDTO: IUserLoginDTO) {
+    login(userLoginDTO: IUserLoginDTO, keep: boolean) {
         const body = JSON.stringify(userLoginDTO);
         const headers = new Headers({ 'Content-Type': 'application/json' });
         return this._http.post(this.rootUrl + "login", body, { headers: headers }).map(res => res.json()).subscribe((response: Response) => {
             this.setCurrentUser(response);
             console.log("stavio current u servisu");
+            console.log(this.currentUser);
             return this.currentUser;
         },
             error => {
                 if (error.status === 400) {
                     return null;
                 }
+            }, () => {
+                this.currentUserUpdated.emit();
+                if(keep){
+                    localStorage.setItem("currentUser", JSON.stringify(this.getCurrentUser()));
+                }
+                console.log("zavrsion");
             }
         );
     }
@@ -40,21 +47,21 @@ export class UserService {
     }
 
     setCurrentUser(response) {
-        this.currentUser = {};
-        this.currentUser.id = response.id;
-        this.currentUser.username = response.username;
-        this.currentUser.email = response.email;
-        this.currentUser.firstName = response.firstName;
-        this.currentUser.lastName = response.lastName;
-        this.currentUser.password = response.password;
-        this.currentUser.role = response.role;
+        this.currentUser = {
+            id: response.id,
+            username: response.username,
+            email: response.email,
+            firstName: response.firstName,
+            lastName: response.lastName,
+            password: response.password,
+            role: response.role
+        };
         this.currentUserUpdated.emit();
     }
 
-    clearCurrentUser(){
+    clearCurrentUser() {
         this.currentUser = undefined;
-        this.currentUserUpdated.emit();
-        if(localStorage.getItem("currentUser") != null){
+        if (localStorage.getItem("currentUser") != null) {
             localStorage.clear();
         }
     }
