@@ -41,11 +41,11 @@
                         <i class="fa fa-user" id="userDropDown" data-toggle="dropdown" aria-expanded="false">
                         </i>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropDown" ngDefaultControl [(ngModel)]="currentUser">
-                            <button *ngIf="currentUser == null" class="dropdown-item" [routerLink]="['/auth/login']">Login</button>
-                            <button *ngIf="currentUser == null" class="dropdown-item">Register</button>
+                            <button *ngIf="currentUser === undefined" class="dropdown-item" [routerLink]="['/auth/login']">Login</button>
+                            <button *ngIf="currentUser === undefined" class="dropdown-item">Register</button>
                             <p *ngIf="currentUser != null">Welcome <b>{{currentUser.username}}</b></p>
                             <button *ngIf="currentUser != null" class="dropdown-item">Profile</button>
-                            <button *ngIf="currentUser != null" class="dropdown-item">Log out</button>
+                            <button *ngIf="currentUser != null" class="dropdown-item" (click)="logOut()">Log out</button>
                         </div>
                     </div>
                 </li>

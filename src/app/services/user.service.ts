@@ -11,7 +11,7 @@ export class UserService {
 
     rootUrl: String = 'http://localhost:8080/api/users/'
 
-    currentUser: IUser = {};
+    currentUser: IUser;
 
     currentUserUpdated: EventEmitter<any> = new EventEmitter();
 
@@ -40,6 +40,7 @@ export class UserService {
     }
 
     setCurrentUser(response) {
+        this.currentUser = {};
         this.currentUser.id = response.id;
         this.currentUser.username = response.username;
         this.currentUser.email = response.email;
@@ -48,5 +49,13 @@ export class UserService {
         this.currentUser.password = response.password;
         this.currentUser.role = response.role;
         this.currentUserUpdated.emit();
+    }
+
+    clearCurrentUser(){
+        this.currentUser = undefined;
+        this.currentUserUpdated.emit();
+        if(localStorage.getItem("currentUser") != null){
+            localStorage.clear();
+        }
     }
 }

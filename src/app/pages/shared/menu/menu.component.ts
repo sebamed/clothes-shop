@@ -66,4 +66,8 @@ export class MenuComponent implements OnInit, OnDestroy {
     userCheck(){
         console.log(this.currentUser);
     }
+
+    logOut(){
+        this._user.clearCurrentUser();
+    }
 }
