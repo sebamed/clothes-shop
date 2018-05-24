@@ -11,7 +11,7 @@ export class UserService {
 
     rootUrl: String = 'http://localhost:8080/api/users/'
 
-    currentUser: IUser = {};
+    currentUser: IUser;
 
     constructor(private _http: Http) {
 

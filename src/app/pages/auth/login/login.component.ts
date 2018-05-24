@@ -18,7 +18,11 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-
+        if(this._user.currentUser != null){
+            console.log("postoji");
+        } else {
+            console.log("ne postoji!");
+        }
     }
 
     ngOnDestroy() {
