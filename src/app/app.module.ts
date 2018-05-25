@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpModule } from '@angular/http';
 
+import { UserModule } from './user/user.module';
 import { AdminModule } from './admin/admin.module';
 import { PagesModule } from './pages/pages.module';
 import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
@@ -41,6 +42,7 @@ import { ToastComponent } from './pages/shared/toast/toast.component';
     NgbModule.forRoot(),
     PagesModule,
     AdminModule,
+    UserModule,
     HttpModule,
     NgxPaginationModule,
     FormsModule
