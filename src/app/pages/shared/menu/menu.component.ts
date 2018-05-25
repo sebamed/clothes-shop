@@ -2,6 +2,10 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { IUser } from '../../../model/user.interface';
 import { Subscription } from 'rxjs';
+import { ToastSerice } from '../toast/toast.service';
+import { ToastTitle } from '../../../model/enum/toast-title.enum';
+import { ToastIcon } from '../../../model/enum/toast-icon.enum';
+import { ToastType } from '../../../model/enum/toast-type.enum';
 
 
 declare var $: any;
@@ -19,7 +23,7 @@ export class MenuComponent implements OnInit, OnDestroy {
 
     currentUserUpdateSubscription: Subscription;
 
-    constructor(private _user: UserService) {
+    constructor(private _user: UserService, private _toasts: ToastSerice) {
 
     }
 
@@ -69,5 +73,11 @@ export class MenuComponent implements OnInit, OnDestroy {
 
     logOut(){
         this._user.clearCurrentUser();
+        this._toasts.addToast({
+            title: ToastTitle.success,
+            message: "You are successfully logged out!",
+            type: ToastType.success,
+            icon: ToastIcon.success
+        });
     }
 }
