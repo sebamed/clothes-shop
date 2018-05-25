@@ -12,6 +12,7 @@ import { OurServicesComponent } from './home/our-services/our-services.component
 import { ProductsComponent } from './products/products.component';
 import { LoginComponent } from './auth/login/login.component';
 import { FormsModule } from '@angular/forms';
+import { RegisterComponent } from './auth/register/register.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
         AboutComponent,
         OurServicesComponent,
         ProductsComponent,
-        LoginComponent
+        LoginComponent,
+        RegisterComponent
     ],
     imports: [
         PagesRoutingModule,

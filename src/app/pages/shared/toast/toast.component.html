@@ -1,0 +1,19 @@
+<div class="toasts" *ngIf="toasts.length >0">
+    <ul>
+        <li *ngFor="let toast of toasts" class="{{toast.type}}">
+            <div class="close" (click)="removeToast(toast)">
+
+                <i class="fa fa-close"></i>
+            </div>
+            <div class="toast-icon">
+                <div class="center-icon">
+                    <i class="fa fa-{{toast.icon}}"></i>
+                </div>
+            </div>
+            <div class="toast-text">
+                <h6>{{toast.title}}</h6>
+                <p>{{toast.message}}</p>
+            </div>
+        </li>
+    </ul>
+</div>

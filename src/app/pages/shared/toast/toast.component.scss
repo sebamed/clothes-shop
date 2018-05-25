@@ -1,0 +1,85 @@
+@import '~scss/vars';
+
+.toasts {
+    position: fixed;
+    bottom: 5rem;
+    right: 5rem;
+    z-index: 999;
+
+    ul {
+        list-style-type: none;
+
+        li {
+            border-radius: 5px;
+            margin: 0 auto;
+            border: 1px solid transparent;
+            position: relative;
+            -ms-transition: all .3s ease-in-out;
+            -webkit-transition: all .3s ease-in-out;
+            -o-transition: all .3s ease-in-out;
+            transition: all .3s ease-in-out;
+            text-align: left;
+            position: relative;
+
+            .close {
+                position: absolute;
+                top: 0;
+                right: 1rem;
+                i {
+                    font-size: .7rem;
+                }
+            }
+
+            .toast-icon {
+                width: 20%;
+                height: 100%;
+                position: absolute;
+                .center-icon {
+                    position: relative;
+                    height: 100%;
+                    i {
+                        font-size: 3rem;
+                        color: #fff;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%); 
+                    }
+                }
+                
+            }
+
+            .toast-text {
+               padding: 1rem 1rem 1rem 20%;
+               color: #fff;
+               h6 {
+                   font-size: 1.2rem;
+                   font-weight: bold;
+               }
+               p {
+                   font-weight: 500;
+                   font-size: .8rem;
+               }
+            }
+
+            
+
+        }
+    }
+
+    .green {
+        background-color: $toastSuccess;
+    }
+
+    .red {
+        background-color: $toastError;
+    }
+
+    .yellow {
+        background-color: $toastWarning;
+    }
+
+    .blue {
+        background-color: $toastInfo;
+    }
+}

@@ -21,9 +21,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">News</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/admin']">Admin</a>
-            </li>
         </ul>
         <form class="form-inline my-2 my-lg-0 search-form">
             <input class="mr-sm-2 input-search" placeholder="Search...">
@@ -42,11 +39,19 @@
                         </i>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropDown" ngDefaultControl [(ngModel)]="currentUser">
                             <div class="arrow-up"></div>
-                            <button *ngIf="currentUser === undefined" class="dropdown-item" [routerLink]="['/auth/login']">Login</button>
-                            <button *ngIf="currentUser === undefined" class="dropdown-item">Register</button>
-                            <p *ngIf="currentUser != null">Welcome <b>{{currentUser.username}}</b></p>
-                            <button *ngIf="currentUser != null" class="dropdown-item">Profile</button>
-                            <button *ngIf="currentUser != null" class="dropdown-item" (click)="logOut()">Log out</button>
+                            <div *ngIf="currentUser === undefined">
+                                <button class="dropdown-item" [routerLink]="['/auth/login']">Login</button>
+                                <button class="dropdown-item" [routerLink]="['/auth/register']">Register</button>
+                            </div>
+                            <div *ngIf="currentUser != null">
+                                <p>Welcome
+                                    <b>{{currentUser.username}}</b>
+                                </p>
+                                <button class="dropdown-item">Profile</button>
+                                <!-- promeni na admin -->
+                                <button *ngIf="currentUser.role.name == 'admin'" class="dropdown-item" [routerLink]="['/admin']">Admin</button>
+                                <button class="dropdown-item" (click)="logOut()">Log out</button>
+                            </div>
                         </div>
                     </div>
                 </li>

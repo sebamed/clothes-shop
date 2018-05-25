@@ -4,7 +4,7 @@ import { IUser } from './model/user.interface';
 
 @Component({
   selector: 'app',
-  template: `<app-menu></app-menu>`
+  template: `<app-menu></app-menu><app-toasts></app-toasts>`
 })
 export class AppComponent implements OnInit {
   title = 'app';

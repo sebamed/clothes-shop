@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
 import { IUser } from "../model/user.interface";
+import { IUserRegisterDTO } from "../model/dto/userRegister.dto";
 
 @Injectable()
 export class UserService {
@@ -22,7 +23,7 @@ export class UserService {
     login(userLoginDTO: IUserLoginDTO, keep: boolean) {
         const body = JSON.stringify(userLoginDTO);
         const headers = new Headers({ 'Content-Type': 'application/json' });
-        return this._http.post(this.rootUrl + "login", body, { headers: headers }).map(res => res.json()).subscribe((response: Response) => {
+        return this._http.post(this.rootUrl + 'login', body, { headers: headers }).map(res => res.json()).subscribe((response: Response) => {
             this.setCurrentUser(response);
             console.log("stavio current u servisu");
             console.log(this.currentUser);
@@ -38,6 +39,23 @@ export class UserService {
                     localStorage.setItem("currentUser", JSON.stringify(this.getCurrentUser()));
                 }
                 console.log("zavrsion");
+            }
+        );
+    }
+
+    register(userRegisterDTO: IUserRegisterDTO){
+        const body = JSON.stringify(userRegisterDTO);
+        const headers = new Headers({ 'Content-Type': 'application/json' });
+        return this._http.post(this.rootUrl + 'register', body, { headers: headers }).map(res => res.json()).subscribe((response: Response) => {
+            console.log("successful registration");
+            return response;
+        },
+            error => {
+                if (error.status === 400) {
+                    return null;
+                }
+            }, () => {
+                console.log("reg finished");
             }
         );
     }

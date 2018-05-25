@@ -14,13 +14,17 @@ import { NgStickyDirective } from 'ng-sticky';
 // routing
 import { AppRoutingModule } from './app-routing.module';
 
+// services
+import { UserService } from './services/user.service';
+import { ToastSerice } from './pages/shared/toast/toast.service';
+import { ServicesService } from './services/services.service';
+
 // components
 import { AppComponent } from './app.component';
 import { MenuComponent } from './pages/shared/menu/menu.component';
 import { IconModalComponent } from './admin/admin-services/icons-modal/icons-modal.component';
-import { ServicesService } from './services/services.service';
 import { FilterPipe } from './admin/pipe/filter.pipe';
-import { UserService } from './services/user.service';
+import { ToastComponent } from './pages/shared/toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,8 @@ import { UserService } from './services/user.service';
     MenuComponent,
     NgStickyDirective,
     IconModalComponent,
-    FilterPipe
+    FilterPipe,
+    ToastComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,7 @@ import { UserService } from './services/user.service';
     NgxPaginationModule,
     FormsModule
   ],
-  providers: [ServicesService, UserService],
+  providers: [ServicesService, UserService, ToastSerice],
   bootstrap: [AppComponent],
   entryComponents: [IconModalComponent]
 })
