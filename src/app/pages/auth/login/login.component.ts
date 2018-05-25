@@ -41,6 +41,12 @@ export class LoginComponent implements OnInit, OnDestroy {
     checkCurrentUser() {
         if (this._user.getCurrentUser() != undefined) {
             // dodaj message da izidje da je vec ulogovan
+            this._toasts.addToast({
+                message: "You are already signed in!",
+                title: ToastTitle.warning,
+                type: ToastType.warning,
+                icon: ToastIcon.warning
+            });
             this._router.navigate(['/home']);
         }
     }
@@ -52,6 +58,12 @@ export class LoginComponent implements OnInit, OnDestroy {
     login() {
         if (this.checkFields()) {
             if (this._user.login(this.userLoginDTO, this.keepMeLoggedIn) != null) {
+                this._toasts.addToast({
+                    message: "You are successfully logged in!",
+                    title: ToastTitle.success,
+                    type: ToastType.success,
+                    icon: ToastIcon.success
+                });
                 this._router.navigate(['/home']);
                 // change route with logged user
             } else {
@@ -61,7 +73,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         else {
             // posalji poruku da nije uneo
             this._toasts.addToast({
-                message: "You need to fill in all fields!You need to fill in all fields!You need to fill in all fields!You need to fill in all fields!",
+                message: "You need to fill in all fields!",
                 title: ToastTitle.error,
                 type: ToastType.error,
                 icon: ToastIcon.error

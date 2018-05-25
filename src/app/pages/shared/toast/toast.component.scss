@@ -10,8 +10,9 @@
         list-style-type: none;
 
         li {
+            min-width: 30rem;
             border-radius: 5px;
-            margin: 0 auto;
+            margin: 1rem auto;
             border: 1px solid transparent;
             position: relative;
             -ms-transition: all .3s ease-in-out;
