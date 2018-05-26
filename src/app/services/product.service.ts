@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
-import { HttpRequest, HttpClient } from '@angular/common/http';
+import { HttpRequest, HttpClient, HttpResponse } from '@angular/common/http';
 import { IProductDTO } from "../model/dto/product.dto";
+
 
 @Injectable()
 export class ProductService {
@@ -19,17 +20,18 @@ export class ProductService {
 
         const headers = new Headers({ 'Content-Type': null });
         headers.set('Accept', "multipart/form-data");
-        headers.append('Content-Type', 'multipart/form-data');
+        headers.append('Content-Type', null);
 
-        let formdata: FormData = new FormData();        
+        let formdata: FormData = new FormData();
 
         formdata.append('productDto', JSON.stringify(productDTO));
         formdata.append('file', file);
 
         const req = new HttpRequest('POST', this.rootUrl + 'add', formdata);
 
-        return this._http.request(req).subscribe(res => {
-            console.log(res);
+        return this._http.request(req).subscribe((response: HttpResponse<any>) => {
+            // ide na njegovu stranicu???
+            console.log(response.body);
         });
     }
 

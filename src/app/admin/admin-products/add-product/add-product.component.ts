@@ -89,7 +89,6 @@ export class AddProductComponent implements OnInit, OnDestroy {
             reader.onload = (event: any) => {
                 this.selectedImageUrl = event.target.result;
             }
-
             reader.readAsDataURL(event.target.files[0]);
         }
     }
