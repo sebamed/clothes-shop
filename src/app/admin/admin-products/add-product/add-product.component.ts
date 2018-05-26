@@ -3,6 +3,7 @@ import { curr } from './currencies';
 import { IProduct } from "../../../model/product.interface";
 import { IProductDTO } from "../../../model/dto/product.dto";
 import { UserService } from "../../../services/user.service";
+import { ProductService } from "../../../services/product.service";
 
 declare var $: any;
 
@@ -33,7 +34,8 @@ export class AddProductComponent implements OnInit, OnDestroy {
 
     allCurrencies;
 
-    constructor(private _user: UserService) {
+    constructor(private _user: UserService,
+        private _product: ProductService) {
 
     }
 
@@ -58,6 +60,7 @@ export class AddProductComponent implements OnInit, OnDestroy {
             // popunjeno
             this.product.admin = this._user.getCurrentUser();
             console.log(this.product);
+            console.log(this._product.addProduct(this.product, this.selectedImage));
         } else {
             // dodaj toast
             console.log("ne moze");
@@ -70,7 +73,7 @@ export class AddProductComponent implements OnInit, OnDestroy {
                 return false;
             }
         }
-        if(this.selectedImage === undefined) return false;
+        if (this.selectedImage === undefined) return false;
         return true;
     }
 

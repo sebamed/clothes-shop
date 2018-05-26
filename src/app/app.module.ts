@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { UserModule } from './user/user.module';
 import { AdminModule } from './admin/admin.module';
@@ -26,6 +27,7 @@ import { MenuComponent } from './pages/shared/menu/menu.component';
 import { IconModalComponent } from './admin/admin-services/icons-modal/icons-modal.component';
 import { FilterPipe } from './admin/pipe/filter.pipe';
 import { ToastComponent } from './pages/shared/toast/toast.component';
+import { ProductService } from './services/product.service';
 
 @NgModule({
   declarations: [
@@ -45,9 +47,10 @@ import { ToastComponent } from './pages/shared/toast/toast.component';
     UserModule,
     HttpModule,
     NgxPaginationModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule 
   ],
-  providers: [ServicesService, UserService, ToastSerice],
+  providers: [ServicesService, UserService, ToastSerice, ProductService],
   bootstrap: [AppComponent],
   entryComponents: [IconModalComponent]
 })

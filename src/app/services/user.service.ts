@@ -10,7 +10,7 @@ import { IUserRegisterDTO } from "../model/dto/userRegister.dto";
 @Injectable()
 export class UserService {
 
-    rootUrl: String = 'http://localhost:8080/api/users/'
+    rootUrl: String = 'http://localhost:8080/api/users/';
 
     currentUser: IUser;
 
