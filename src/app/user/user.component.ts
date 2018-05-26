@@ -21,7 +21,7 @@ export class UserComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // provera da li je ulogovani user admin i da li postoji ulogovani user
-    if (this._user.getCurrentUser() === undefined || this._user.getCurrentUser().role.name != 'user') {
+    if (this._user.getCurrentUser() === undefined || this._user.getCurrentUser().role.name != 'user'|| this._user.getCurrentUser().role.name != 'admin') {
       // nije admin
       this._toasts.addToast({
         title: ToastTitle.warning,

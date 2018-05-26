@@ -10,8 +10,6 @@
     border: 1px solid #fff;
 }
 
-
-
 .product {
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -80,6 +78,7 @@
         position: relative;
         img {
             width: 15rem;
+            min-height: 10rem;
         }
 
         .overlay {

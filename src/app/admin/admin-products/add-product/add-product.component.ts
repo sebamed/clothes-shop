@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { curr } from './currencies';
 import { IProduct } from "../../../model/product.interface";
+import { IProductDTO } from "../../../model/dto/product.dto";
+import { UserService } from "../../../services/user.service";
 
 declare var $: any;
 
@@ -15,15 +17,30 @@ export class AddProductComponent implements OnInit, OnDestroy {
     // dodaj model produkta i stavi
     // da su propertiji i ovde ispod i u html-u njegovi
 
-    product: IProduct = {
+    selectedImage: File;
+    selectedImageUrl: String = '';
 
+    product: IProductDTO = {
+        title: undefined,
+        description: undefined,
+        priceMain: undefined,
+        priceDecimal: undefined,
+        discount: undefined,
+        currency: undefined,
+        admin: {},
+        isPublic: false
     }
 
     allCurrencies;
 
+    constructor(private _user: UserService) {
+
+    }
+
     ngOnInit() {
         this.product.isPublic = false;
         this.allCurrencies = curr;
+        this.product.currency = this.allCurrencies[0];
     }
 
     ngOnDestroy() {
@@ -37,10 +54,41 @@ export class AddProductComponent implements OnInit, OnDestroy {
     addNew() {
         // todo:
         // post request nakon provere polja
+        if (this.checkFields()) {
+            // popunjeno
+            this.product.admin = this._user.getCurrentUser();
+            console.log(this.product);
+        } else {
+            // dodaj toast
+            console.log("ne moze");
+        }
+    }
+
+    checkFields(): boolean {
+        for (var key in this.product) {
+            if (this.product[key] == null || this.product[key] === '' || this.product[key] === undefined) {
+                return false;
+            }
+        }
+        if(this.selectedImage === undefined) return false;
+        return true;
     }
 
     togglePublish() {
         this.product.isPublic = !this.product.isPublic;
+    }
+
+    onFileChanged(event) {
+        if (event.target.files && event.target.files[0]) {
+            this.selectedImage = event.target.files[0];
+            var reader = new FileReader();
+
+            reader.onload = (event: any) => {
+                this.selectedImageUrl = event.target.result;
+            }
+
+            reader.readAsDataURL(event.target.files[0]);
+        }
     }
 
 }
