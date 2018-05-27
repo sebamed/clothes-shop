@@ -1,0 +1,24 @@
+@import '~scss/vars';
+
+table, .table, thead, tr, th, tbody, td {
+    background-color: #19253F; 
+    border: 3px solid #141D31;
+    color: #fff;
+    text-align: center;
+}
+
+table td, tr, th {
+    vertical-align: middle;
+}
+
+img {
+    max-width: 50px;
+}
+
+.yes {
+    color: $colLightGreen;
+}
+
+.no {
+    color: $colRed;
+}

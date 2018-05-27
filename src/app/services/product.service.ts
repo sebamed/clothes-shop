@@ -34,9 +34,7 @@ export class ProductService {
     }
 
     getProduct(id: Number){
-        return this._http.get(this.rootUrl + id.toString()).subscribe((res: IProduct) => {
-            console.log(res);
-        });
+        return this._http.get(this.rootUrl + id.toString()).map(res => <IProduct>res)
     }
 
     getAllProducts(){

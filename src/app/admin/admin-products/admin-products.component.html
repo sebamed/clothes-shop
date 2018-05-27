@@ -1,0 +1,41 @@
+<section id="admin-products">
+    <div class="spacer"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 15px">ID</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Currency</th>
+                            <th scope="col">Public</th>
+                            <th scope="col">Admin</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let product of products">
+                            <th>{{product.id}}</th>
+                            <td *ngIf="product.image != null">
+                                    <img class="img-fluid" src="http://localhost:8080/product-images/{{product.image.url}}" />
+                            </td>
+                            <td *ngIf="product.image === null">
+                                    /
+                            </td>
+                            <td>{{product.title}}</td>
+                            <td>{{product.description}}</td>
+                            <td>{{product.priceMain}},{{product.priceDecimal}}</td>
+                            <td>{{product.currency|uppercase}}</td>
+                            <td class="yes" *ngIf="product.public === true">YES</td>
+                            <td class="no" *ngIf="product.public === false">NO</td>
+                            <td *ngIf="product.admin != null">{{product.admin.username}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

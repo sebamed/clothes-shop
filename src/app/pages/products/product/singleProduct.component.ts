@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Subscription } from "rxjs";
 import { ProductService } from "../../../services/product.service";
+import { IProduct } from "../../../model/product.interface";
 
 @Component({
     selector: 'pages-singleProduct',
@@ -12,6 +13,8 @@ export class SingleProductComponent implements OnInit, OnDestroy {
 
     subRouterParams: Subscription;
 
+    product: IProduct = undefined;
+
     currentId: Number;
 
     constructor(private _activeRoute: ActivatedRoute,
@@ -21,7 +24,7 @@ export class SingleProductComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.getUrlParams();
-        this._product.getProduct(this.currentId);
+        this.getProduct();
     }
 
     ngOnDestroy() {
@@ -31,6 +34,13 @@ export class SingleProductComponent implements OnInit, OnDestroy {
     getUrlParams() {
         this.subRouterParams = this._activeRoute.params.subscribe(params => {
             this.currentId = params['id'];
+        });
+    }
+
+    getProduct(){
+        this._product.getProduct(this.currentId).subscribe((res: IProduct) => {
+            this.product = res;
+            console.log(this.product);
         });
     }
 

@@ -88,7 +88,7 @@ h3 {
 .price {
     -webkit-box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
     box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
-    bottom: 1rem;
+    bottom: 50%;
     background-color: $colTitleYellow;
     padding: 1.5rem 2rem 0 2rem;
     position: absolute;
@@ -111,7 +111,7 @@ h3 {
     }
 
     .price {
-        bottom: 8rem;
+        bottom: 50%;
         h1 {
             font-size: 6rem;
         }

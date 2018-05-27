@@ -1,0 +1,26 @@
+@import '~scss/vars';
+
+.product-image {
+    img {
+        border-radius: 5px;
+    }
+}
+
+.btn-add-to-cart {
+    margin: 0 1rem 1.5rem 1rem;
+    background-color: transparent;
+    border: 2px solid #262626;
+    padding: .7rem 1rem;
+    font-size: .8rem;
+    color: #262626;
+    font-weight: 900;
+    i {
+        color: $colTitleYellow;
+        margin-right: .5rem;
+        font-size: 1rem;
+    }
+    &:hover {
+        background-color: #262626;
+        color: #fff;
+    }
+}

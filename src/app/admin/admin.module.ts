@@ -7,6 +7,7 @@ import { AdminServicesComponent } from './admin-services/admin-services.componen
 import { AdminComponent } from './admin.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AddProductComponent } from './admin-products/add-product/add-product.component';
+import { AdminProductsComponent } from './admin-products/admin-products.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { AddProductComponent } from './admin-products/add-product/add-product.co
         AdminComponent,
         AdminHomeComponent,
         AdminServicesComponent,
-        AddProductComponent
+        AddProductComponent,
+        AdminProductsComponent
     ],
     imports: [
         AdminRoutingModule,
