@@ -1,6 +1,9 @@
 import { Injectable } from "@angular/core";
 import { HttpRequest, HttpClient, HttpResponse } from '@angular/common/http';
 import { IProductDTO } from "../model/dto/product.dto";
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import { IProduct } from "../model/product.interface";
 
 
 @Injectable()
@@ -13,11 +16,6 @@ export class ProductService {
     }
 
     addProduct(productDTO: IProductDTO, file: File) {
-        // let headers = new HttpHeaders();
-        // //this is the important step. You need to set content type as null
-        // headers.set('Content-Type', null);
-        // headers.set('Accept', "multipart/form-data");
-
         const headers = new Headers({ 'Content-Type': null });
         headers.set('Accept', "multipart/form-data");
         headers.append('Content-Type', null);
@@ -32,6 +30,12 @@ export class ProductService {
         return this._http.request(req).subscribe((response: HttpResponse<any>) => {
             // ide na njegovu stranicu???
             console.log(response.body);
+        });
+    }
+
+    getProduct(id: Number){
+        return this._http.get(this.rootUrl + id.toString()).subscribe((res: IProduct) => {
+            console.log(res);
         });
     }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Subscription } from "rxjs";
+import { ProductService } from "../../../services/product.service";
 
 @Component({
     selector: 'pages-singleProduct',
@@ -13,12 +14,14 @@ export class SingleProductComponent implements OnInit, OnDestroy {
 
     currentId: Number;
 
-    constructor(private _activeRoute: ActivatedRoute) {
+    constructor(private _activeRoute: ActivatedRoute,
+                private _product: ProductService) {
 
     }
 
     ngOnInit() {
         this.getUrlParams();
+        this._product.getProduct(this.currentId);
     }
 
     ngOnDestroy() {

@@ -1,4 +1,5 @@
 import { IUser } from "./user.interface";
+import { IImage } from "./image.interface";
 
 export interface IProduct {
     id?: Number;
@@ -10,4 +11,5 @@ export interface IProduct {
     currency?: String;
     admin?: IUser;
     isPublic?: Boolean;
+    image?: IImage;
 }
