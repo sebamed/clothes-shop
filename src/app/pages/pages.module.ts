@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { OurServicesComponent } from './home/our-services/our-services.component';
 import { ProductsComponent } from './products/products.component';
+import { SingleProductComponent } from './products/product/singleProduct.component';
 import { LoginComponent } from './auth/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './auth/register/register.component';
@@ -22,7 +23,8 @@ import { RegisterComponent } from './auth/register/register.component';
         OurServicesComponent,
         ProductsComponent,
         LoginComponent,
-        RegisterComponent
+        RegisterComponent,
+        SingleProductComponent
     ],
     imports: [
         PagesRoutingModule,
