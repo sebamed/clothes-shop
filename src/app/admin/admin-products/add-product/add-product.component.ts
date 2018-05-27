@@ -4,6 +4,8 @@ import { IProduct } from "../../../model/product.interface";
 import { IProductDTO } from "../../../model/dto/product.dto";
 import { UserService } from "../../../services/user.service";
 import { ProductService } from "../../../services/product.service";
+import { CategoryService } from "../../../services/category.service";
+import { ICategory } from "../../../model/category.interface";
 
 declare var $: any;
 
@@ -29,19 +31,24 @@ export class AddProductComponent implements OnInit, OnDestroy {
         discount: undefined,
         currency: undefined,
         admin: {},
-        isPublic: false
+        isPublic: false,
+        category: undefined
     }
 
     allCurrencies;
 
+    categories: ICategory[] = [];
+
     constructor(private _user: UserService,
-        private _product: ProductService) {
+        private _product: ProductService,
+        private _category: CategoryService) {
 
     }
 
     ngOnInit() {
         this.product.isPublic = false;
         this.allCurrencies = curr;
+        this.setCategories();
         this.product.currency = this.allCurrencies[0];
     }
 
@@ -91,6 +98,16 @@ export class AddProductComponent implements OnInit, OnDestroy {
             }
             reader.readAsDataURL(event.target.files[0]);
         }
+    }
+
+    setCategories(){
+        this._category.getAllCategories().subscribe((res: ICategory[]) => {
+            this.categories = res;
+        });
+    }
+
+    setCategory(value){
+        this.product.category = value;
     }
 
 }

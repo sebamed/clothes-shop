@@ -28,6 +28,12 @@
                     </div>
                     <br />
                     <br />
+                    <div class="form-group">
+                        <label>Category:</label>
+                        <select name="cat" class="form-control" ngDefaultControl [(ngModel)]="product.category" (ngModelChange)="setCategory($event)">
+                            <option *ngFor="let category of categories" [ngValue]="category">{{category.name|uppercase}}</option>
+                        </select>
+                    </div>
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="cb-publish" (click)="togglePublish()">
                         <label class="form-check-label" for="cb-publish">Publish (will apear in product list for all users)</label>

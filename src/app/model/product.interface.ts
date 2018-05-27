@@ -1,5 +1,6 @@
 import { IUser } from "./user.interface";
 import { IImage } from "./image.interface";
+import { ICategory } from "./category.interface";
 
 export interface IProduct {
     id?: Number;
@@ -12,4 +13,5 @@ export interface IProduct {
     admin?: IUser;
     public?: Boolean;
     image?: IImage;
+    category?: ICategory;
 }

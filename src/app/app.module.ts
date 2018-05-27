@@ -20,6 +20,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { UserService } from './services/user.service';
 import { ToastSerice } from './pages/shared/toast/toast.service';
 import { ServicesService } from './services/services.service';
+import { ProductService } from './services/product.service';
+import { CategoryService } from './services/category.service';
 
 // components
 import { AppComponent } from './app.component';
@@ -27,7 +29,6 @@ import { MenuComponent } from './pages/shared/menu/menu.component';
 import { IconModalComponent } from './admin/admin-services/icons-modal/icons-modal.component';
 import { FilterPipe } from './admin/pipe/filter.pipe';
 import { ToastComponent } from './pages/shared/toast/toast.component';
-import { ProductService } from './services/product.service';
 
 @NgModule({
   declarations: [
@@ -48,9 +49,9 @@ import { ProductService } from './services/product.service';
     HttpModule,
     NgxPaginationModule,
     FormsModule,
-    HttpClientModule 
+    HttpClientModule
   ],
-  providers: [ServicesService, UserService, ToastSerice, ProductService],
+  providers: [ServicesService, UserService, ToastSerice, ProductService, CategoryService],
   bootstrap: [AppComponent],
   entryComponents: [IconModalComponent]
 })
