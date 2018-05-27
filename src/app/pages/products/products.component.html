@@ -2,10 +2,10 @@
     <div class="spacer"></div>
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
-                <div class="product">
-                    <div class="sale">
-                        <span>50%</span>
+            <div *ngFor="let product of products" class="col-md-3">
+                <div class="product" *ngIf="product.public === true">
+                    <div class="sale" *ngIf="product.discount > 0">
+                        <span>{{product.discount}}%</span>
                     </div>
                     <div class="product-image">
                         <div class="overlay smooth">
@@ -13,17 +13,17 @@
                                 <i class="fa fa-cart-plus"></i>
                             </div>
                         </div>
-                        <img src="http://cdn.shopify.com/s/files/1/0187/6386/products/3175928bae43325f.png?v=1501621577"
+                        <img class="img-fluid" src="http://cdn.shopify.com/s/files/1/0187/6386/products/3175928bae43325f.png?v=1501621577"
                             alt="">
                     </div>
                     <div class="product-info">
-                        <h3>Gray leather shoes</h3>
+                        <h3>{{product.title}}</h3>
                         <div class="price">
-                            <h4>234</h4>
+                            <h4>{{product.priceMain}}</h4>
                         </div>
                         <div class="price-details">
-                            <h5>99</h5>
-                            <h6>USD</h6>
+                            <h5>{{product.priceDecimal}}</h5>
+                            <h6>{{product.currency}}</h6>
                         </div>
                         <div class="hidden-buttons">
                             <i class="fa fa-heart"></i>

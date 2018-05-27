@@ -10,6 +10,6 @@ export interface IProduct {
     discount?: Number;
     currency?: String;
     admin?: IUser;
-    isPublic?: Boolean;
+    public?: Boolean;
     image?: IImage;
 }

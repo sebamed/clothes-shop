@@ -39,4 +39,8 @@ export class ProductService {
         });
     }
 
+    getAllProducts(){
+        return this._http.get(this.rootUrl.toString()).map(res => <IProduct[]>res);
+    }
+
 }
