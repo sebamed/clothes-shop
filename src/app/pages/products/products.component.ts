@@ -11,7 +11,9 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
     products: IProduct[] = [];
 
-    constructor(private _product: ProductService){
+    view: Number = 3;
+
+    constructor(private _product: ProductService) {
 
     }
 
@@ -20,13 +22,17 @@ export class ProductsComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        
+
     }
 
-    setAllProducts(){
+    setAllProducts() {
         this._product.getAllProducts().subscribe(res => {
             this.products = res;
         });
+    }
+
+    onChange(e) {
+        this.view = e;
     }
 
 }
