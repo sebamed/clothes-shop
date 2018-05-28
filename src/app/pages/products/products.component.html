@@ -2,7 +2,10 @@
     <div class="spacer"></div>
     <div class="container">
         <div class="row">
-            <div *ngFor="let product of products" class="col-md-3">
+            <!-- 
+                DODAJ SEARCH, KOLIKO DA PRIKAZUJE (PAGINATION) I KOLIKO U REDU (3, 4)
+            -->
+            <div *ngFor="let product of products | paginate: { itemsPerPage: 30, currentPage: p }" class="col-md-3">
                 <div class="product" *ngIf="product.public === true">
                     <div class="sale" *ngIf="product.discount > 0">
                         <span>{{product.discount}}%</span>
@@ -13,7 +16,7 @@
                                 <i class="fa fa-eye"></i>
                             </div>
                         </div>
-                        <img class="img-fluid" src="http://localhost:8080/product-images/{{product.image.url}}"
+                        <img class="img-fluid" src="{{product.image.url}}"
                             alt="">
                     </div>
                     <div class="product-info">
@@ -37,6 +40,8 @@
 
                 </div>
             </div>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
         </div>
     </div>
 </section>

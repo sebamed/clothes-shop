@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { PagesRoutingModule } from './pages-routing.module';
 import { NguCarouselModule } from '@ngu/carousel';
 import { CommonModule } from '@angular/common';
+import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
+
 
 // components
 import { HomeComponent } from './home/home.component';
@@ -30,7 +32,8 @@ import { RegisterComponent } from './auth/register/register.component';
         PagesRoutingModule,
         NguCarouselModule,
         CommonModule,
-        FormsModule
+        FormsModule,
+        NgxPaginationModule
     ]
 })
 export class PagesModule {

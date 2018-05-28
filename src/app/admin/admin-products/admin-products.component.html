@@ -3,9 +3,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <table class="table table-bordered">
+                <div class="buttons">
+                    <button class="btn btn-add" [routerLink]="['/admin/products/add']">Add product</button>
+                    <button class="btn btn-delete" (click)="deleteProducts()">Delete products</button>
+                </div>
+                <table id="products-table" class="table table-bordered">
                     <thead>
-                        <tr>
+                        <tr class="head">
+                            <th scope="col"></th>
                             <th scope="col" style="width: 15px">ID</th>
                             <th scope="col">Image</th>
                             <th scope="col">Title</th>
@@ -17,10 +22,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let product of products">
-                            <th>{{product.id}}</th>
+                        <tr *ngFor="let product of products | paginate: { itemsPerPage: 15, currentPage: p }">
+                            <th>
+                                <input type="checkbox" (click)="selectProduct(product)"/>
+                            </th>
+                            <td>{{product.id}}</td>
                             <td *ngIf="product.image != null">
-                                    <img class="img-fluid" src="http://localhost:8080/product-images/{{product.image.url}}" />
+                                    <img class="img-fluid" src="{{product.image.url}}" />
                             </td>
                             <td *ngIf="product.image === null">
                                     /
@@ -35,6 +43,7 @@
                         </tr>
                     </tbody>
                 </table>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
             </div>
         </div>
     </div>

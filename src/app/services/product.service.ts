@@ -33,6 +33,13 @@ export class ProductService {
         });
     }
 
+    deleteProducts(products: IProduct[]){
+        const req = new HttpRequest('POST', this.rootUrl + 'delete', products);
+        return this._http.request(req).subscribe((response: HttpResponse<any>) =>{
+            console.log(response);
+        });
+    }
+
     getProduct(id: Number){
         return this._http.get(this.rootUrl + id.toString()).map(res => <IProduct>res)
     }

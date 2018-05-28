@@ -3,6 +3,9 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+import { NgxPaginationModule } from 'ngx-pagination'; // <-- import the module
+
+
 import { AdminServicesComponent } from './admin-services/admin-services.component';
 import { AdminComponent } from './admin.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
@@ -21,7 +24,8 @@ import { AdminProductsComponent } from './admin-products/admin-products.componen
     imports: [
         AdminRoutingModule,
         CommonModule,
-        FormsModule
+        FormsModule,
+        NgxPaginationModule
     ]
 })
 export class AdminModule {
