@@ -4,6 +4,18 @@
     background-color: #fff;
 }
 
+.search-bar {
+    border-bottom: 1px solid #D6E2EB;
+    padding-top: 10px;
+    input {
+        padding: 2rem 0;
+        margin-bottom: 0 !important;
+        width: 100%;
+        border: none;
+        background-color: transparent;
+    }
+}
+
 .product {
     border: 1px solid #ddd;
     border-radius: 5px;

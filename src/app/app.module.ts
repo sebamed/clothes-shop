@@ -27,8 +27,10 @@ import { CategoryService } from './services/category.service';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './pages/shared/menu/menu.component';
 import { IconModalComponent } from './admin/admin-services/icons-modal/icons-modal.component';
-import { FilterPipe } from './admin/pipe/filter.pipe';
 import { ToastComponent } from './pages/shared/toast/toast.component';
+
+// pipes
+import { FilterPipe } from './admin/pipe/filter.pipe';
 
 @NgModule({
   declarations: [

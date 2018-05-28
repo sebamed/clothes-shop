@@ -16,7 +16,7 @@ import { SingleProductComponent } from './products/product/singleProduct.compone
 import { LoginComponent } from './auth/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './auth/register/register.component';
-
+import { FilterProductsPipe } from '../admin/pipe/filterProducts.pipe';
 
 @NgModule({
     declarations: [
@@ -26,7 +26,8 @@ import { RegisterComponent } from './auth/register/register.component';
         ProductsComponent,
         LoginComponent,
         RegisterComponent,
-        SingleProductComponent
+        SingleProductComponent,
+        FilterProductsPipe
     ],
     imports: [
         PagesRoutingModule,

@@ -12,7 +12,6 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AddProductComponent } from './admin-products/add-product/add-product.component';
 import { AdminProductsComponent } from './admin-products/admin-products.component';
 
-
 @NgModule({
     declarations: [
         AdminComponent,

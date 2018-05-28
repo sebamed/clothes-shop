@@ -5,7 +5,17 @@
             <!-- 
                 DODAJ SEARCH, KOLIKO DA PRIKAZUJE (PAGINATION) I KOLIKO U REDU (3, 4)
             -->
-            <div *ngFor="let product of products | paginate: { itemsPerPage: 30, currentPage: p }" class="col-md-3">
+            <div class="col-md-8">
+                <div class="search-bar">
+                    <div>
+                        <input ngDefaultControl [(ngModel)]="searchText" id="search" type="search" class="validate" placeholder="search">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                s
+            </div>
+            <div *ngFor="let product of products | paginate: { itemsPerPage: 30, currentPage: p } | filterProducts : searchText" class="col-md-3">
                 <div class="product" *ngIf="product.public === true">
                     <div class="sale" *ngIf="product.discount > 0">
                         <span>{{product.discount}}%</span>
@@ -16,8 +26,7 @@
                                 <i class="fa fa-eye"></i>
                             </div>
                         </div>
-                        <img class="img-fluid" src="{{product.image.url}}"
-                            alt="">
+                        <img class="img-fluid" src="{{product.image.url}}" alt="">
                     </div>
                     <div class="product-info">
                         <h3>{{product.title}}</h3>
