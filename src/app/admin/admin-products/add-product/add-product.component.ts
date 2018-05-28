@@ -6,6 +6,7 @@ import { UserService } from "../../../services/user.service";
 import { ProductService } from "../../../services/product.service";
 import { CategoryService } from "../../../services/category.service";
 import { ICategory } from "../../../model/category.interface";
+import { Router } from "@angular/router";
 
 declare var $: any;
 
@@ -41,7 +42,8 @@ export class AddProductComponent implements OnInit, OnDestroy {
 
     constructor(private _user: UserService,
         private _product: ProductService,
-        private _category: CategoryService) {
+        private _category: CategoryService,
+    private _router: Router) {
 
     }
 
@@ -67,7 +69,10 @@ export class AddProductComponent implements OnInit, OnDestroy {
             // popunjeno
             this.product.admin = this._user.getCurrentUser();
             console.log(this.product);
-            console.log(this._product.addProduct(this.product, this.selectedImage));
+            // dodaj da ide na njegovu stranicu
+            this._product.addProduct(this.product, this.selectedImage);
+            this._router.navigate(['/admin/products/all']);
+            // poruka!
         } else {
             // dodaj toast
             console.log("ne moze");

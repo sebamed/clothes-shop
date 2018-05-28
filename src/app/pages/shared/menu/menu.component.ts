@@ -73,11 +73,6 @@ export class MenuComponent implements OnInit, OnDestroy {
 
     logOut(){
         this._user.clearCurrentUser();
-        this._toasts.addToast({
-            title: ToastTitle.success,
-            message: "You are successfully logged out!",
-            type: ToastType.success,
-            icon: ToastIcon.success
-        });
+        this._toasts.addSuccessToast("You are successfully logged out!");
     }
 }

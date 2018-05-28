@@ -35,21 +35,11 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
         if (this.selectedProducts.length === 0) {
             // toast da nema selektovanih
             console.log("nnema selektovanih");
-            this._toasts.addToast({
-                title: ToastTitle.error,
-                message: "No products selected!",
-                type: ToastType.error,
-                icon: ToastIcon.error
-            });
+            this._toasts.addErrorToast("No products selected!");
         } else {
             this._product.deleteProducts(this.selectedProducts);
             this.selectedProducts = [];
-            this._toasts.addToast({
-                title: ToastTitle.success,
-                message: "Selected products deleted!",
-                type: ToastType.success,
-                icon: ToastIcon.success
-            });
+            this._toasts.addSuccessToast("Selected products deleted!");
             this.getAllProducts();
         }
     }

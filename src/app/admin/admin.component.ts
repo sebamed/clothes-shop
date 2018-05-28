@@ -23,12 +23,7 @@ export class AdminComponent implements OnInit, OnDestroy {
     // provera da li je ulogovani user admin i da li postoji ulogovani user
     if (this._user.getCurrentUser() === undefined || this._user.getCurrentUser().role.name != 'admin') {
       // nije admin
-      this._toasts.addToast({
-        title: ToastTitle.warning,
-        message: "You are not authorized to be here, so we are redirecting you!",
-        type: ToastType.warning,
-        icon: ToastIcon.warning
-      });
+      this._toasts.addWarningToast("You are not authorized to be here, so we are redirecting you!");
       this._router.navigate(['/home']);
     }
   }

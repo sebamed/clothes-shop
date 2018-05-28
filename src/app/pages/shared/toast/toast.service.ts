@@ -4,6 +4,9 @@ import { Observable } from 'rxjs/Observable';
 import { Subscription } from "rxjs/Subscription";
 import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/timer';
+import { ToastTitle } from "../../../model/enum/toast-title.enum";
+import { ToastType } from "../../../model/enum/toast-type.enum";
+import { ToastIcon } from "../../../model/enum/toast-icon.enum";
 
 @Injectable()
 export class ToastSerice {
@@ -15,7 +18,7 @@ export class ToastSerice {
 
     toastsUpdated: EventEmitter<any> = new EventEmitter();
 
-    addToast(toast: IToast){
+    private addToast(toast: IToast){
         this.toasts.push(toast);
         this.toastsUpdated.emit();
         if(this.toasts.indexOf(toast) > -1){
@@ -23,6 +26,42 @@ export class ToastSerice {
         } else {
             this.timerSub.unsubscribe();
         }
+    }
+
+    addErrorToast(msg: String){
+        this.addToast({
+            title: ToastTitle.error,
+            message: msg,
+            type: ToastType.error,
+            icon: ToastIcon.error
+        });
+    }
+
+    addSuccessToast(msg: String){
+        this.addToast({
+            title: ToastTitle.success,
+            message: msg,
+            type: ToastType.success,
+            icon: ToastIcon.success
+        });
+    }
+
+    addWarningToast(msg: String){
+        this.addToast({
+            title: ToastTitle.warning,
+            message: msg,
+            type: ToastType.warning,
+            icon: ToastIcon.warning
+        });
+    }
+
+    addInfoToast(msg: String){
+        this.addToast({
+            title: ToastTitle.info,
+            message: msg,
+            type: ToastType.info,
+            icon: ToastIcon.info
+        });
     }
 
     toastTimer(){

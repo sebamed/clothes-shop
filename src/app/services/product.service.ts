@@ -27,24 +27,24 @@ export class ProductService {
 
         const req = new HttpRequest('POST', this.rootUrl + 'add', formdata);
 
-        return this._http.request(req).subscribe((response: HttpResponse<any>) => {
-            // ide na njegovu stranicu???
-            console.log(response.body);
+        this._http.request(req).subscribe((response: HttpResponse<any>) => {
+            return response.body;
         });
+
     }
 
-    deleteProducts(products: IProduct[]){
+    deleteProducts(products: IProduct[]) {
         const req = new HttpRequest('POST', this.rootUrl + 'delete', products);
-        return this._http.request(req).subscribe((response: HttpResponse<any>) =>{
+        return this._http.request(req).subscribe((response: HttpResponse<any>) => {
             console.log(response);
         });
     }
 
-    getProduct(id: Number){
+    getProduct(id: Number) {
         return this._http.get(this.rootUrl + id.toString()).map(res => <IProduct>res)
     }
 
-    getAllProducts(){
+    getAllProducts() {
         return this._http.get(this.rootUrl.toString()).map(res => <IProduct[]>res);
     }
 
