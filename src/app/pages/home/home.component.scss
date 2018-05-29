@@ -7,14 +7,19 @@
         width: 400px;
         transform: scale(2);
     }
+    .sale-image {
+        text-align: center;
+    }
 }
 
 .odd {
     background: linear-gradient(90deg,$colBlueBasic,$colPurpleBasic); // GRADIENT
+    text-align: right;
 }
 
 .even {
     background: linear-gradient(90deg,$colPurpleBasic,$colBlueBasic); // GRADIENT
+    text-align: left;
 }
 
 h1, h3 {
@@ -88,7 +93,7 @@ h3 {
 .price {
     -webkit-box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
     box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
-    bottom: 50%;
+    bottom: 10%;
     background-color: $colTitleYellow;
     padding: 1.5rem 2rem 0 2rem;
     position: absolute;
