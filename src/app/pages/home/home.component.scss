@@ -12,14 +12,14 @@
     }
 }
 
-.odd {
+.true {
     background: linear-gradient(90deg,$colBlueBasic,$colPurpleBasic); // GRADIENT
     text-align: right;
 }
 
-.even {
+.false {
     background: linear-gradient(90deg,$colPurpleBasic,$colBlueBasic); // GRADIENT
-    text-align: left;
+    text-align: right;
 }
 
 h1, h3 {
@@ -50,7 +50,7 @@ h3 {
     }
 }
 
-.item-title-odd {
+.item-title-true {
     position: relative;
     z-index: 99;
     padding: 0 1rem;
@@ -59,14 +59,14 @@ h3 {
     text-align: right;
 }
 
-.item-specs-odd {
+.item-specs-true {
     padding: 0 1rem;
     width: 50%;
     text-align: center;
     display: inline-block;
 }
 
-.item-title-even {
+.item-title-false {
     position: relative;
     z-index: 99;
     padding: 0 1rem;
@@ -75,18 +75,18 @@ h3 {
     text-align: left;
 }
 
-.item-specs-even {
+.item-specs-false {
     padding: 0 1rem;
     width: 50%;
     text-align: center;
     display: inline-block;
 }
 
-.price-even {
+.price-false {
     left: 5rem;
 }
 
-.price-odd { 
+.price-true { 
     right: 5rem;
 }
 
@@ -122,11 +122,11 @@ h3 {
         }
     }
 
-    .price-odd {
+    .price-true {
         right: 2rem;
     }
 
-    .price-even {
+    .price-false {
         left: 2rem;
     }
 

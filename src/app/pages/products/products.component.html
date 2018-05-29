@@ -30,15 +30,16 @@
                     <div class="product-image">
                         <div class="overlay smooth">
                             <div class="overlay-icon">
-                                <i class="fa fa-eye"></i>
+                                <i [routerLink]="['/product/', product.id]" class="fa fa-eye"></i>
                             </div>
                         </div>
                         <img class="img-fluid" src="{{product.image.url}}" alt="">
                     </div>
                     <div class="product-info">
                         <h3>{{product.title}}</h3>
+                        <h4><s>{{product.priceMain}}.{{product.priceDecimal}}</s></h4>
                         <div class="price">
-                            <h4>{{product.priceMain}}</h4>
+                            <h4>{{product.priceMain-(product.priceMain*(product.discount/100)) | number : '1.0-0' }}</h4>
                         </div>
                         <div class="price-details">
                             <h5>{{product.priceDecimal}}</h5>

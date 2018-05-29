@@ -4,12 +4,12 @@
         <div class="row" *ngIf="product != undefined" ngDefaultControl [(ngModel)]="product">
             <div class="col-md-6">
                 <div class="product-image">
-                    <img class="img-fluid" src="http://localhost:8080/product-images/{{product.image.url}}" alt="">
+                    <img class="img-fluid" src="{{product.image.url}}" alt="">
                 </div>
             </div>
             <div class="col-md-6">
                 <h1>{{product.title}}</h1>
-                <h1>{{product.priceMain}},{{product.priceDecimal}} {{product.currency|uppercase}}</h1>
+                <h1>{{product.priceMain-(product.priceMain*(product.discount/100)) | number : '1.0-0' }},{{product.priceDecimal}} {{product.currency|uppercase}}</h1>
                 <h6>Category: <b>{{product.category.name}}</b></h6><br />
                 <h6>Description:</h6>
                 <p>{{product.description}}</p>

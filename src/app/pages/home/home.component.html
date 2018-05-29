@@ -1,64 +1,31 @@
 <ngu-carousel [inputs]="carouselOne" (carouselLoad)="myfunc($event)">
-    <ngu-item NguCarouselItem class="carousel-item odd">
-        <div class="spacer"></div>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6">
-                    <h1>NEKI TITL OVDE IDE!</h1>
-                    <h3>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam harum ad officiis odit, assumenda minima
-                        quos totam a tenetur! Suscipit similique fuga praesentium illo earum, eligendi saepe omnis maiores
-                        animi?
-                    </h3>
-                    <button class="btn">
-                        View more
-                    </button>
-                    <button class="btn">
-                        Add to cart
-                    </button>
-                </div>
-                <div class="col-md-6">
-                    <div class="sale-image">
-                        <img class="img-fluid" src="http://cdn.shopify.com/s/files/1/0187/6386/products/3175928bae43325f.png?v=1501621577" alt=""
-                        />
+    <ngu-item NguCarouselItem *ngFor="let product of latestProducts; let i = index" class="carousel-item {{i % 2 == 0}}">
+            <div class="spacer"></div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1>{{product.title}}</h1>
+                        <h3>{{product.description}}
+                        </h3>
+                        <button class="btn" [routerLink]="['/product/', product.id]">
+                            View more
+                        </button>
+                        <button class="btn">
+                            Add to cart
+                        </button>
                     </div>
-                    <div class="price price-odd smooth">
-                        <h1>199.99$</h1>
+                    <div class="col-md-6">
+                        <div class="sale-image">
+                            <img class="img-fluid" src="{{product.image.url}}" alt=""
+                            />
+                        </div>
+                        <div class="price price-true smooth">
+                            <h1>{{product.priceMain-(product.priceMain*(product.discount/100)) | number : '1.0-0' }}.{{product.priceDecimal}} {{product.currency}}</h1>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     </ngu-item>
-    <ngu-item NguCarouselItem class="carousel-item even">
-        <div class="spacer"></div>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="sale-image">
-                        <img class="img-fluid" src="http://cdn.shopify.com/s/files/1/0187/6386/products/3175928bae43325f.png?v=1501621577" alt=""
-                        />
-                    </div>
-                    <div class="price price-even smooth">
-                        <h1>199.99$</h1>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <h1>NEKI TITL OVDE IDE!</h1>
-                    <h3>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam harum ad officiis odit, assumenda minima
-                        quos totam a tenetur! Suscipit similique fuga praesentium illo earum, eligendi saepe omnis maiores
-                        animi?
-                    </h3>
-                    <button class="btn">
-                        View more
-                    </button>
-                    <button class="btn">
-                        Add to cart
-                    </button>
-                </div>
-            </div>
-        </div>
-    </ngu-item>
-
-
     <button NguCarouselPrev class="carousel-nav left-nav">
         <i class="fa fa-angle-left"></i>
     </button>
@@ -66,5 +33,4 @@
         <i class="fa fa-angle-right"></i>
     </button>
 </ngu-carousel>
-
 <home-services></home-services>

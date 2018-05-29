@@ -29,7 +29,7 @@ export class AddProductComponent implements OnInit, OnDestroy {
         description: undefined,
         priceMain: undefined,
         priceDecimal: undefined,
-        discount: undefined,
+        discount: 0,
         currency: undefined,
         admin: {},
         isPublic: false,
