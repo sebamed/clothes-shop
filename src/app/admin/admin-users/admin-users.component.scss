@@ -1,0 +1,50 @@
+@import '~scss/vars';
+
+.ngx-pagination {
+    color: #fff;
+}
+
+.buttons {
+    text-align: right;
+    padding: 1rem 0;
+    button {
+        margin-left: .7rem;
+        color: #fff;
+        &:hover {
+            color: #fff;
+        }
+    }
+
+    .btn-add {
+        background-color: $colLightGreen;
+    }
+
+    .btn-delete {
+        background-color: $colRed;
+    }
+}
+
+table, .table, thead, tr, th, tbody, td {
+    background-color: #19253F; 
+    border: 3px solid #141D31;
+    color: #fff;
+    text-align: center;
+}
+
+.head:hover {
+    th, td {
+        box-shadow: none;
+        cursor: default;
+    }
+}
+
+tr:hover {
+    th, td {
+        box-shadow: inset 0 0 100px 100px rgba(0, 0, 0, .1);
+        cursor: pointer;
+    }
+}
+
+table td, tr, th {
+    vertical-align: middle;
+}

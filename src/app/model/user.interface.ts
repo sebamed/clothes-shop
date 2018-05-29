@@ -8,4 +8,4 @@ export interface IUser {
     role?: IRole;
     email?: String;
     password?: String;
-}
+} 

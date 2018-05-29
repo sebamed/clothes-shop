@@ -20,6 +20,26 @@ export class UserService {
 
     }
 
+    deleteUsers(users: IUser[]){
+        const body = JSON.stringify(users);
+        const headers = new Headers({ 'Content-Type': 'application/json' });
+        return this._http.post(this.rootUrl + "delete", body, { headers: headers }).subscribe(res => {
+            console.log(res);
+        });
+    }
+
+    getAllUsers(){
+        return this._http.get(this.rootUrl.toString()).map(res => res.json());
+    }
+
+    updateUserRole(user: IUser){
+        const body = JSON.stringify(user);
+        const headers = new Headers({ 'Content-Type': 'application/json' });
+        return this._http.post(this.rootUrl + "update-role", body, { headers: headers }).subscribe(res => {
+            console.log(res);
+        });
+    }
+
     login(userLoginDTO: IUserLoginDTO, keep: boolean) {
         const body = JSON.stringify(userLoginDTO);
         const headers = new Headers({ 'Content-Type': 'application/json' });

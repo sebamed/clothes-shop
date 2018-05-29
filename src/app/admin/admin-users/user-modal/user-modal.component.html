@@ -1,0 +1,20 @@
+<div class="modal-header">
+    <div class="icon">
+        <i class="fa fa-user"></i>
+    </div>
+    <div class="user-title">
+        <h4>#{{currentUser.id}} - {{currentUser.firstName}} {{currentUser.lastName}}</h4>
+        <h5>{{currentUser.username}}</h5>
+    </div>
+</div>
+<div class="modal-body">
+    <div class="user-info">
+        <h5>{{currentUser.email}}</h5>
+        <button *ngIf="currentUser.role.name === 'user'" (click)="makeAdmin()" class="btn btn-make">Make admin</button>
+        <button *ngIf="currentUser.role.name != 'user'" (click)="makeUser()" class="btn btn-make">Make user</button>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="saveCurrent()">Save</button>
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>

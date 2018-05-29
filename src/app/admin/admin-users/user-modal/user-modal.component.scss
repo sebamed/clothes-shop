@@ -1,0 +1,58 @@
+@import '~scss/vars';
+
+.modal-header {
+    background: linear-gradient(90deg,$colBlueBasic,$colPurpleBasic); // GRADIENT
+    position: relative;
+    .icon {
+        width: 6rem;
+        height: 6rem;
+        position: absolute;
+        left: 1rem;
+        bottom: -3rem;
+        border-radius: 50%;
+        border: 3px solid #fff;
+        background-color: $colFortOrange;
+        text-align: center;
+        i {
+            font-size: 2rem;
+            margin-top: 3rem;
+            color: #fff;
+            transform: translateY(-50%);
+        }
+    }
+
+    .user-title {
+        width: 100%;
+        padding: 1rem 1rem 1rem 7rem;
+        h4{
+            margin: 0;
+            color: #fff;
+        }
+
+        h5 {
+            margin: 0;
+            font-weight: 300;
+            font-size: .8rem;
+            color: #cccccc;
+        }
+    }
+}
+
+.modal-body {
+    .user-info {
+        width: 100%;
+        padding: 1rem 1rem 0 7rem;
+
+        h5 {
+            margin: 0;
+            font-weight: 300;
+            font-size: 1rem;
+            color: #292929;
+            display: inline-block;
+        }
+
+        .btn-make {
+            float: right;
+        }
+    }
+}

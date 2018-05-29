@@ -6,12 +6,17 @@ import { AdminServicesComponent } from './admin-services/admin-services.componen
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AddProductComponent } from './admin-products/add-product/add-product.component';
 import { AdminProductsComponent } from './admin-products/admin-products.component';
+import { AdminUsersComponent } from './admin-users/admin-users.component';
 
 const routes: Routes = [
     { path: '', component: AdminComponent, children: [
         { path: '', redirectTo: 'home', pathMatch: 'full' },
         { path: 'home', component: AdminHomeComponent },
         { path: 'services', component: AdminServicesComponent },
+        { path: 'users', children: [
+            { path: 'all', component: AdminUsersComponent },
+            { path: '', redirectTo: 'all', pathMatch: 'full'}
+        ]},
         { path: 'products', children: [
             { path: 'add', component: AddProductComponent },
             { path: '', redirectTo: 'all', pathMatch: 'full' },

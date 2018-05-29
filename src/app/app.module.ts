@@ -31,6 +31,7 @@ import { ToastComponent } from './pages/shared/toast/toast.component';
 
 // pipes
 import { FilterPipe } from './admin/pipe/filter.pipe';
+import { UserModalComponent } from './admin/admin-users/user-modal/user-modal.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { FilterPipe } from './admin/pipe/filter.pipe';
     MenuComponent,
     NgStickyDirective,
     IconModalComponent,
+    UserModalComponent,
     FilterPipe,
     ToastComponent
   ],
@@ -55,6 +57,6 @@ import { FilterPipe } from './admin/pipe/filter.pipe';
   ],
   providers: [ServicesService, UserService, ToastSerice, ProductService, CategoryService],
   bootstrap: [AppComponent],
-  entryComponents: [IconModalComponent]
+  entryComponents: [IconModalComponent, UserModalComponent]
 })
 export class AppModule { }

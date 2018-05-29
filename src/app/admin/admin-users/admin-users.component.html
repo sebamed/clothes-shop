@@ -1,0 +1,39 @@
+<section id="admin-users">
+    <div class="spacer"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="buttons">
+                    <button class="btn btn-delete" (click)="deleteUsers()">Delete users</button>
+                </div>
+                <table id="users-table" class="table table-bordered">
+                    <thead>
+                        <tr class="head">
+                            <th></th>
+                            <th scope="col" style="width: 15px">ID</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">E mail</th>
+                            <th scope="col">Role</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of users | paginate: { itemsPerPage: 15, currentPage: p }" (click)="openUserModal(user)">
+                            <th>
+                                <input type="checkbox" (click)="selectUser(user)" />
+                            </th>
+                            <td>{{user.id}}</td>
+                            <td>{{user.username}}</td>
+                            <td>{{user.firstName}}</td>
+                            <td>{{user.lastName}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.role.name}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+        </div>
+    </div>
+</section>
