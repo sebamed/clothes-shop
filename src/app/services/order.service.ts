@@ -26,9 +26,14 @@ export class OrderService {
         });
     }
 
+    removeProduct(product: IProduct){
+        this.getCurrentUser();
+        this.currentUser.order.products.splice(this.currentUser.order.products.indexOf(product), 1);
+        this.updateOrder(this.currentUser.order);
+    }
+
     addToProducts(product: IProduct){
         this.getCurrentUser();
-        console.log(this.currentUser.order);
         this.currentUser.order.products.push(product);
         this.updateOrder(this.currentUser.order);
     }

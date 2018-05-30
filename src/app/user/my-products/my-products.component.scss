@@ -1,0 +1,80 @@
+@import '~scss/vars';
+
+.summary {
+    background-color: #19253f;
+    border: 2px solid #141d31;
+    padding: 1rem 0;
+    border-radius: 5px;
+    color: #fff;
+
+    .summary-title, .summary-info, .summary-total {
+        border-bottom: 1px solid #141d31;
+        padding: 1rem;
+        text-transform: uppercase;
+        h5, h6 {
+            display: inline-block;
+        }
+        h5 {
+            color: $colTitleYellow;
+            float: right;
+            font-size: .8rem;
+        }
+    }
+
+    .summary-checkout {
+        padding: 1rem 1rem 0 1rem;
+
+        button{
+            width: 100%;
+            background-color: $colTitleYellow;
+        }
+    }
+}
+
+ul {
+    list-style-type: none;
+
+    li:first-child {
+        margin: 0;
+    }
+
+    li {
+        background-color: #19253f;
+        border: 2px solid #141d31;
+        padding: 1rem 0;
+        border-radius: 5px;
+        color: #fff; 
+        margin: 1rem 0;
+        h6 {
+            font-weight: 400;
+            font-size: .8rem;
+            letter-spacing: 1px;
+            b{
+                color: $colTitleYellow;
+            }
+        }
+
+        .image {
+            text-align: center;
+            border-right: 1px solid #141d31;
+            img {
+                width: 10rem;
+            }
+        }
+
+        .product-buttons {
+
+            button {
+                color: #fff;
+            }
+            
+            .btn-remove {
+                background-color: $colRed;
+            }
+
+            .btn-view {
+                background-color: $colBlueBasic;
+            }
+        }
+    }
+}

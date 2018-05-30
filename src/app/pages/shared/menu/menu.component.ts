@@ -6,6 +6,7 @@ import { ToastSerice } from '../toast/toast.service';
 import { ToastTitle } from '../../../model/enum/toast-title.enum';
 import { ToastIcon } from '../../../model/enum/toast-icon.enum';
 import { ToastType } from '../../../model/enum/toast-type.enum';
+import { Router } from '@angular/router';
 
 
 declare var $: any;
@@ -23,7 +24,7 @@ export class MenuComponent implements OnInit, OnDestroy {
 
     currentUserUpdateSubscription: Subscription;
 
-    constructor(private _user: UserService, private _toasts: ToastSerice) {
+    constructor(private _user: UserService, private _toasts: ToastSerice, private _router: Router) {
 
     }
 
@@ -74,5 +75,6 @@ export class MenuComponent implements OnInit, OnDestroy {
     logOut(){
         this._user.clearCurrentUser();
         this._toasts.addSuccessToast("You are successfully logged out!");
+        this._router.navigate(['/home']);
     }
 }

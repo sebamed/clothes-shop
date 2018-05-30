@@ -1,1 +1,55 @@
-radi my products
+<section id="my-products">
+    <div class="spacer"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul>
+                    <li class="product" *ngFor="let product of order.products">
+                        <div class="row">
+                        <div class="col-md-4">
+                            <div class="image">
+                                <img src="{{product.image.url}}" alt="" />
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="product-info">
+                                <h6>Title: <b>{{product.title}}</b></h6>
+                                <h6>Id: #<b>{{product.id}}</b></h6>
+                                <h6>Category: <b>{{product.category.name}}</b></h6>
+                                <h6>Discount: <b>{{product.discount}}%</b></h6>
+                                <h6>Old price: <b>{{product.priceMain}}.{{product.priceDecimal}} {{product.currency}}</b></h6>
+                                <h6>Price with discount: <b>{{product.priceMain-(product.priceMain*(product.discount/100)) | number : '1.0-0' }}.{{product.priceDecimal}} {{product.currency}}</b></h6>
+                            </div>
+                            <div class="product-buttons">
+                                <button class="btn btn-remove" (click)="removeProduct(product)">Remove</button>
+                                <button class="btn btn-view" [routerLink]="['/product/', product.id]">View</button>
+                            </div>
+                        </div>
+                    </div>
+                    </li>
+                    <!--li *ngFor="let product of order.products">
+                        {{product.title}}
+                    </li -->
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <div class="summary">
+                    <div class="summary-title">
+                        <h4>Summary</h4>
+                    </div>
+                    <div class="summary-info">
+                        <h6>Promo code: </h6>
+                        <h5>*under construction*</h5>
+                    </div>
+                    <div class="summary-total">
+                            <h6>Total: </h6>
+                            <h5 ngDefaultControl [(ngModel)]="sum">USD <b>{{sum}}</b></h5>
+                    </div>
+                    <div class="summary-checkout">
+                        <button class="btn btn-checkout">Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
