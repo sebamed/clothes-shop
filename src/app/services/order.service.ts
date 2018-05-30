@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Http } from "@angular/http";
+import { Http, Headers } from "@angular/http";
 import { IOrder } from "../model/order.interface";
 import { IProduct } from "../model/product.interface";
 import { UserService } from "./user.service";
@@ -19,8 +19,9 @@ export class OrderService {
 
     updateOrder(order: IOrder){
         const body = JSON.stringify(order);
+        console.log(order);
         const headers = new Headers({ 'Content-Type': 'application/json' });
-        this._http.post(this.rootUrl + "update", { headers: headers }, body).subscribe(res => {
+        this._http.post(this.rootUrl + "update", body, { headers: headers }).subscribe(res => {
             console.log(res);
         });
     }
@@ -29,7 +30,6 @@ export class OrderService {
         this.getCurrentUser();
         console.log(this.currentUser.order);
         this.currentUser.order.products.push(product);
-        this.currentUser.order.description = '';
         this.updateOrder(this.currentUser.order);
     }
 

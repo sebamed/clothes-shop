@@ -56,6 +56,7 @@ export class UserService {
             }, () => {
                 this.currentUserUpdated.emit();
                 if(keep){
+                    localStorage.clear();
                     localStorage.setItem("currentUser", JSON.stringify(this.getCurrentUser()));
                 }
                 console.log("zavrsion");

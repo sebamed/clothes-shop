@@ -1,4 +1,7 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
+import { UserService } from "../../services/user.service";
+import { IUser } from "../../model/user.interface";
+import { IOrder } from "../../model/order.interface";
 
 @Component({
     selector: 'user-myproducts',
@@ -7,12 +10,31 @@ import { Component, OnDestroy, OnInit } from "@angular/core";
 })
 export class MyProductsComponent implements OnInit, OnDestroy {
 
-    ngOnInit() {
+    currentUser: IUser = undefined;
 
+    order: IOrder = undefined;
+
+    constructor(private _user: UserService){
+
+    }
+
+
+
+    ngOnInit() {
+        this.setCurrentUser();
+        this.showOrder();
+        console.log(this.order);
     }
 
     ngOnDestroy() {
 
     }
 
+    setCurrentUser(){
+        this.currentUser = this._user.getCurrentUser();
+    }
+
+    showOrder(){
+        this.order = this.currentUser.order;
+    }
 }
