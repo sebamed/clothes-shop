@@ -22,6 +22,7 @@ import { ToastSerice } from './pages/shared/toast/toast.service';
 import { ServicesService } from './services/services.service';
 import { ProductService } from './services/product.service';
 import { CategoryService } from './services/category.service';
+import { OrderService } from './services/order.service';
 
 // components
 import { AppComponent } from './app.component';
@@ -55,7 +56,7 @@ import { UserModalComponent } from './admin/admin-users/user-modal/user-modal.co
     FormsModule,
     HttpClientModule
   ],
-  providers: [ServicesService, UserService, ToastSerice, ProductService, CategoryService],
+  providers: [ServicesService, UserService, ToastSerice, ProductService, CategoryService, OrderService],
   bootstrap: [AppComponent],
   entryComponents: [IconModalComponent, UserModalComponent]
 })

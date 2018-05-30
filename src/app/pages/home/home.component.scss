@@ -1,11 +1,11 @@
 @import "~scss/vars";
 
 .carousel-item {
-    padding: 4rem 8rem !important;
+    padding: 4rem 8rem 2rem 8rem !important;
 
     img {
         width: 400px;
-        transform: scale(2);
+        transform: scale(1.6);
     }
     .sale-image {
         text-align: center;
@@ -93,12 +93,12 @@ h3 {
 .price {
     -webkit-box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
     box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
-    bottom: 10%;
+    bottom: 0;
     background-color: $colTitleYellow;
     padding: 1.5rem 2rem 0 2rem;
     position: absolute;
     h1 {
-        font-size: 8rem;
+        font-size: 5rem;
     }
     &:hover {
         transform: scale(1.1);
@@ -109,30 +109,39 @@ h3 {
 
 @media (max-width: 900px) {    
     .carousel-item {
+        padding: 1rem 4rem !important;
         img {
             width: 400px;
-            transform: scale(1.4);
+            transform: scale(1.05);
         }
     }
 
     .price {
-        bottom: 50%;
+        bottom: 0;
         h1 {
-            font-size: 6rem;
+            font-size: 3rem;
         }
     }
 
+    h1 {
+        font-size: 3rem;
+    }
+    
+    h3 {
+        margin-top: 1rem;
+    }
+
     .price-true {
-        right: 2rem;
+        right: 1rem;
     }
 
     .price-false {
-        left: 2rem;
+        left: 1rem;
     }
 
     .btn {
         font-size: 2rem;
-        padding: 1rem 2rem 0.5rem 2rem;
+        padding: .5rem 1rem 0rem 1rem;
     }
 }
 

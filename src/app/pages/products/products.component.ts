@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { IProduct } from "../../model/product.interface";
 import { ProductService } from "../../services/product.service";
+import { OrderService } from "../../services/order.service";
 
 @Component({
     selector: 'pages-products',
@@ -13,7 +14,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
     view: Number = 3;
 
-    constructor(private _product: ProductService) {
+    constructor(private _product: ProductService, private _order: OrderService) {
 
     }
 
@@ -33,6 +34,10 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
     onChange(e) {
         this.view = e;
+    }
+
+    updateOrder(product: IProduct){
+        this._order.addToProducts(product);
     }
 
 }

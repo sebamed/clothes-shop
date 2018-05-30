@@ -1,4 +1,5 @@
 import { IRole } from "./role.interface";
+import { IOrder } from "./order.interface";
 
 export interface IUser {
     id?: Number;
@@ -8,4 +9,5 @@ export interface IUser {
     role?: IRole;
     email?: String;
     password?: String;
+    order?: IOrder
 } 

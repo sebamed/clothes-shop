@@ -92,7 +92,8 @@ export class UserService {
             firstName: response.firstName,
             lastName: response.lastName,
             password: response.password,
-            role: response.role
+            role: response.role,
+            order: response.order
         };
         this.currentUserUpdated.emit();
     }
