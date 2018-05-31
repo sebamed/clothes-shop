@@ -34,7 +34,6 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
     deleteProducts() {
         if (this.selectedProducts.length === 0) {
             // toast da nema selektovanih
-            console.log("nnema selektovanih");
             this._toasts.addErrorToast("No products selected!");
         } else {
             this._product.deleteProducts(this.selectedProducts);

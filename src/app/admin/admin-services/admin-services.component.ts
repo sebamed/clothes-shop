@@ -3,6 +3,7 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { IconModalComponent } from "./icons-modal/icons-modal.component";
 import { ServicesService } from "../../services/services.service";
 import { IService } from "../../model/service.interface";
+import { ToastSerice } from "../../pages/shared/toast/toast.service";
 
 @Component({
     selector: 'admin-services',
@@ -13,7 +14,7 @@ export class AdminServicesComponent implements OnInit, OnDestroy {
 
     services: IService[] = [];
 
-    constructor(private _modal: NgbModal, private _services: ServicesService) {
+    constructor(private _modal: NgbModal, private _services: ServicesService, private _toast: ToastSerice) {
 
     }
 
@@ -46,5 +47,9 @@ export class AdminServicesComponent implements OnInit, OnDestroy {
         },
             error => console.log(error),
             () => console.log("proveribazu sad"));
+        this._toast.addSuccessToast("Services updated successfully!");
+
     }
+
+
 }
