@@ -57,3 +57,54 @@
 </nav>
 <!-- ROUTES -->
 <router-outlet></router-outlet>
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h6>Links</h6>
+                <ul>
+                    <li [routerLink]="['/home']">Home</li>
+                    <li [routerLink]="['/products']">Products</li>
+                    <li [routerLink]="['/about']">About</li>
+                </ul>
+            </div>
+            <div class="col-md-4" *ngIf="currentUser != undefined && (currentUser.role.name === 'admin' || currentUser.role.name === 'user')">
+                <h6>Users</h6>
+                <ul>
+                    <li [routerLink]="['/user/my-products']">My Cart</li>
+                </ul>
+            </div>
+            <div class="col-md-4" *ngIf="currentUser != undefined && currentUser.role.name === 'admin'">
+                <h6>Admins</h6>
+                <ul>
+                    <li [routerLink]="['/admin/home']">Admin panel</li>
+                    <li [routerLink]="['/admin/orders']">Orders</li>
+                    <li [routerLink]="['/admin/products/all']">Products</li>
+                    <li [routerLink]="['/admin/users/all']">Users</li>
+                    <li [routerLink]="['/admin/services']">Services</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="about-project">
+        <div class="container">
+            <div class="row">
+                <div class="col -md-12">
+                    <p>Built with
+                        <i class="fa fa-heart"></i> by
+                        <a href="https://github.com/sebamed">sebamed</a>
+                    </p>
+                    <p>Project made for educational purposes only
+                    </p>
+                    <p>Made using
+                        <a href="https://angular.io/">Angular 5</a>,
+                        <a href="https://jquery.com/">jQuery</a>,
+                        <a href="https://getbootstrap.com/">Bootstrap 4.0.0</a> and some great
+                        <a href="https://github.com/sebamed/clothes-shop/blob/master/README.md">ng2 libraries</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
