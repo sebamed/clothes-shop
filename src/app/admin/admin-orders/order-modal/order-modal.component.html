@@ -1,0 +1,43 @@
+<div class="modal-header">
+
+</div>
+<div class="modal-body">
+    <table id="products-table" class="table table-bordered">
+        <thead>
+            <tr class="head">
+                <th scope="col" style="width: 15px">ID</th>
+                <th scope="col">Image</th>
+                <th scope="col">Title</th>
+                <th scope="col" style="width: 50px">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Currency</th>
+                <th scope="col">Public</th>
+                <th scope="col">Admin</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of currentOrder.products | paginate: { itemsPerPage: 15, currentPage: p }" [routerLink]="['/product/', product.id]"
+                (click)="activeModal.close('Close click')">
+                <td>{{product.id}}</td>
+                <td *ngIf="product.image != null">
+                    <img class="img-fluid" src="{{product.image.url}}" />
+                </td>
+                <td *ngIf="product.image === null">
+                    /
+                </td>
+                <td>{{product.title}}</td>
+                <td class="limit">{{product.description}}</td>
+                <td>{{product.priceMain}},{{product.priceDecimal}}</td>
+                <td>{{product.currency|uppercase}}</td>
+                <td class="yes" *ngIf="product.public === true">YES</td>
+                <td class="no" *ngIf="product.public === false">NO</td>
+                <td *ngIf="product.admin != null">{{product.admin.username}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>

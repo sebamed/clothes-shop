@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { IOrder } from "../../model/order.interface";
 import { OrderService } from "../../services/order.service";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { OrderModalComponent } from "./order-modal/order-modal.component";
 
 @Component({
     selector: 'admin-orders',
@@ -12,7 +14,7 @@ export class AdminOrdersComponent implements OnInit, OnDestroy {
     orders: IOrder[] = [];
     allOrders: IOrder[] = [];
 
-    constructor(private _order: OrderService) {
+    constructor(private _order: OrderService, private _modal: NgbModal) {
 
     }
 
@@ -22,6 +24,11 @@ export class AdminOrdersComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
 
+    }
+
+    openOrderModal(order: IOrder) {
+        const typesModalRef = this._modal.open(OrderModalComponent,{ size: 'lg', backdrop: 'static' });
+        typesModalRef.componentInstance.currentOrder = order;
     }
 
     setOrders() {

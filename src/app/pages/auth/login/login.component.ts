@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit, OnDestroy {
                 this._router.navigate(['/home']);
                 // change route with logged user
             } else {
-
+                this._toasts.addErrorToast("You entered incorrect password or username!");
             }
         }
         else {

@@ -12,7 +12,7 @@ export class UserService {
 
     rootUrl: String = 'http://localhost:8080/api/users/';
 
-    currentUser: IUser;
+    currentUser: IUser = undefined;
 
     currentUserUpdated: EventEmitter<any> = new EventEmitter();
 
@@ -20,7 +20,7 @@ export class UserService {
 
     }
 
-    deleteUsers(users: IUser[]){
+    deleteUsers(users: IUser[]) {
         const body = JSON.stringify(users);
         const headers = new Headers({ 'Content-Type': 'application/json' });
         return this._http.post(this.rootUrl + "delete", body, { headers: headers }).subscribe(res => {
@@ -28,11 +28,11 @@ export class UserService {
         });
     }
 
-    getAllUsers(){
+    getAllUsers() {
         return this._http.get(this.rootUrl.toString()).map(res => res.json());
     }
 
-    updateUserRole(user: IUser){
+    updateUserRole(user: IUser) {
         const body = JSON.stringify(user);
         const headers = new Headers({ 'Content-Type': 'application/json' });
         return this._http.post(this.rootUrl + "update-role", body, { headers: headers }).subscribe(res => {
@@ -43,28 +43,24 @@ export class UserService {
     login(userLoginDTO: IUserLoginDTO, keep: boolean) {
         const body = JSON.stringify(userLoginDTO);
         const headers = new Headers({ 'Content-Type': 'application/json' });
-        return this._http.post(this.rootUrl + 'login', body, { headers: headers }).map(res => res.json()).subscribe((response: Response) => {
+        this._http.post(this.rootUrl + 'login', body, { headers: headers }).map(res => res.json()).subscribe((response: Response) => {
             this.setCurrentUser(response);
             console.log("stavio current u servisu");
             console.log(this.currentUser);
-            return this.currentUser;
         },
             error => {
-                if (error.status === 400) {
-                    return null;
-                }
+                    return false;
             }, () => {
                 this.currentUserUpdated.emit();
-                if(keep){
-                    localStorage.clear();
-                    localStorage.setItem("currentUser", JSON.stringify(this.getCurrentUser()));
-                }
+                localStorage.clear();
+                localStorage.setItem("currentUser", JSON.stringify(this.getCurrentUser()));
                 console.log("zavrsion");
             }
         );
+        return true;
     }
 
-    register(userRegisterDTO: IUserRegisterDTO){
+    register(userRegisterDTO: IUserRegisterDTO) {
         const body = JSON.stringify(userRegisterDTO);
         const headers = new Headers({ 'Content-Type': 'application/json' });
         return this._http.post(this.rootUrl + 'register', body, { headers: headers }).map(res => res.json()).subscribe((response: Response) => {

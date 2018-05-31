@@ -13,7 +13,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let order of orders">
+                        <tr *ngFor="let order of orders" (click)="openOrderModal(order)">
                             <td scope="col" style="width: 15px">{{order.id}}</td>
                             <td scope="col">{{order.user.email}}</td>
                             <td scope="col">{{order.description}}</td>

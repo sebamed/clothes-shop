@@ -18,16 +18,13 @@
             <li class="nav-item">
                 <a class="nav-link" [routerLink]="['products']">Products</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['products/product']">News</a>
-            </li>
         </ul>
         <form class="form-inline my-2 my-lg-0 search-form">
             <input class="mr-sm-2 input-search" placeholder="Search...">
         </form>
         <div class="nav-icons">
             <ul>
-                <li class="nav-icon" (click)="userCheck()">
+                <li class="nav-icon" [routerLink]="['/products/all']">
                     <i class="fa fa-search"></i>
                 </li>
                 <li class="nav-icon" [routerLink]="['/user/']">
@@ -47,7 +44,6 @@
                                 <p>Welcome
                                     <b>{{currentUser.username}}</b>
                                 </p>
-                                <button class="dropdown-item">Profile</button>
                                 <!-- promeni na admin -->
                                 <button *ngIf="currentUser.role.name == 'admin'" class="dropdown-item" [routerLink]="['/admin']">Admin</button>
                                 <button class="dropdown-item" (click)="logOut()">Log out</button>

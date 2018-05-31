@@ -29,12 +29,14 @@ table, .table, thead, tr, th, tbody, td {
 
 .head:hover {
     th, td {
+        cursor: default;
         box-shadow: none;
     }
 }
 
 tr:hover {
     th, td {
+        cursor: pointer;
         box-shadow: inset 0 0 100px 100px rgba(0, 0, 0, .1);
     }
 }

@@ -54,6 +54,7 @@ export class MyProductsComponent implements OnInit, OnDestroy {
         this.order = this.currentUser.order;
         this.sum = 0;
         this.getSum();
+        this._user.clearCurrentUser();
         this._user.login({
             username: this.currentUser.username,
             password: this.currentUser.password
@@ -71,6 +72,7 @@ export class MyProductsComponent implements OnInit, OnDestroy {
         this.order.checkout = true;
         this.order.description = this.desc;
         this._order.checkout(this.order);
+        this._user.clearCurrentUser();
         this._user.login({
             username: this.currentUser.username,
             password: this.currentUser.password
