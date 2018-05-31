@@ -1,0 +1,30 @@
+<section id="admin-orders">
+    <div class="spacer"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <table id="products-table" class="table table-bordered">
+                    <thead>
+                        <tr class="head">
+                            <th scope="col" style="width: 15px">ID</th>
+                            <th scope="col">User</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Delivered</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let order of orders">
+                            <td scope="col" style="width: 15px">{{order.id}}</td>
+                            <td scope="col">{{order.user.email}}</td>
+                            <td scope="col">{{order.description}}</td>
+                            <td class="yes" *ngIf="order.delivered === true">YES</td>
+                            <td class="no" *ngIf="order.delivered === false">
+                                <button class="btn btn-add" (click)="setDelivered(order)">Set as delivered</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

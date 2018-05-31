@@ -17,11 +17,31 @@ export class OrderService {
 
     }
 
+    getAllOrders(){
+        return this._http.get(this.rootUrl.toString()).map(res => res.json());
+    }
+
     updateOrder(order: IOrder){
         const body = JSON.stringify(order);
         console.log(order);
         const headers = new Headers({ 'Content-Type': 'application/json' });
         this._http.post(this.rootUrl + "update", body, { headers: headers }).subscribe(res => {
+            console.log(res);
+        });
+    }
+
+    checkout(order: IOrder){
+        const body = JSON.stringify(order);
+        const headers = new Headers({ 'Content-Type': 'application/json' });
+        this._http.post(this.rootUrl + "checkout", body, { headers: headers }).subscribe(res => {
+            console.log(res);
+        });
+    }
+
+    setDelivered(order: IOrder){
+        const body = JSON.stringify(order);
+        const headers = new Headers({ 'Content-Type': 'application/json' });
+        this._http.post(this.rootUrl + "deliver", body, { headers: headers }).subscribe(res => {
             console.log(res);
         });
     }

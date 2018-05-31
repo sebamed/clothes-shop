@@ -1,0 +1,73 @@
+@import '~scss/vars';
+
+.ngx-pagination {
+    color: #fff;
+}
+
+button {
+    margin-left: .7rem;
+    color: #fff;
+    &:hover {
+        color: #fff;
+    }
+}
+
+.btn-add {
+    background-color: $colLightGreen;
+}
+
+.btn-delete {
+    background-color: $colRed;
+}
+
+table, .table, thead, tr, th, tbody, td {
+    background-color: #19253F; 
+    border: 3px solid #141D31;
+    color: #fff;
+    text-align: center;
+}
+
+.head:hover {
+    th, td {
+        box-shadow: none;
+    }
+}
+
+tr:hover {
+    th, td {
+        box-shadow: inset 0 0 100px 100px rgba(0, 0, 0, .1);
+    }
+}
+
+table td, tr, th {
+    vertical-align: middle;
+}
+
+img {
+    max-width: 50px;
+}
+
+.yes {
+    color: $colLightGreen;
+}
+
+.no {
+    color: $colRed;
+}
+
+.nav-tabs {
+    border-color: #141D31;
+    color: #fff;
+    li {
+        background-color: #19253F;
+        border-color: #141D31;
+        margin: 0 1rem 0 0;
+        &:hover {
+            border-color: #141D31;
+        }
+    } 
+    .active {
+        border-color: #141D31;
+        background-color: $colTitleYellow;
+    }
+}

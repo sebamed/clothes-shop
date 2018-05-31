@@ -1,31 +1,51 @@
 <section id="my-products">
     <div class="spacer"></div>
     <div class="container">
-        <div class="row">
+        <div class="row" *ngIf="order.products.length === 0">
+            <div class="col-md-12 no-products">
+                <h1>
+                    You have no products yet!
+                </h1>
+            </div>
+        </div>
+        <div class="row" *ngIf="order.products.length > 0">
             <div class="col-md-8">
                 <ul>
                     <li class="product" *ngFor="let product of order.products">
                         <div class="row">
-                        <div class="col-md-4">
-                            <div class="image">
-                                <img src="{{product.image.url}}" alt="" />
+                            <div class="col-md-4">
+                                <div class="image">
+                                    <img src="{{product.image.url}}" alt="" />
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="product-info">
+                                    <h6>Title:
+                                        <b>{{product.title}}</b>
+                                    </h6>
+                                    <h6>Id: #
+                                        <b>{{product.id}}</b>
+                                    </h6>
+                                    <h6>Category:
+                                        <b>{{product.category.name}}</b>
+                                    </h6>
+                                    <h6>Discount:
+                                        <b>{{product.discount}}%</b>
+                                    </h6>
+                                    <h6>Old price:
+                                        <b>{{product.priceMain}}.{{product.priceDecimal}} {{product.currency}}</b>
+                                    </h6>
+                                    <h6>Price with discount:
+                                        <b>{{product.priceMain-(product.priceMain*(product.discount/100)) | number : '1.0-0'
+                                            }}.{{product.priceDecimal}} {{product.currency}}</b>
+                                    </h6>
+                                </div>
+                                <div class="product-buttons">
+                                    <button class="btn btn-remove" (click)="removeProduct(product)">Remove</button>
+                                    <button class="btn btn-view" [routerLink]="['/product/', product.id]">View</button>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-8">
-                            <div class="product-info">
-                                <h6>Title: <b>{{product.title}}</b></h6>
-                                <h6>Id: #<b>{{product.id}}</b></h6>
-                                <h6>Category: <b>{{product.category.name}}</b></h6>
-                                <h6>Discount: <b>{{product.discount}}%</b></h6>
-                                <h6>Old price: <b>{{product.priceMain}}.{{product.priceDecimal}} {{product.currency}}</b></h6>
-                                <h6>Price with discount: <b>{{product.priceMain-(product.priceMain*(product.discount/100)) | number : '1.0-0' }}.{{product.priceDecimal}} {{product.currency}}</b></h6>
-                            </div>
-                            <div class="product-buttons">
-                                <button class="btn btn-remove" (click)="removeProduct(product)">Remove</button>
-                                <button class="btn btn-view" [routerLink]="['/product/', product.id]">View</button>
-                            </div>
-                        </div>
-                    </div>
                     </li>
                     <!--li *ngFor="let product of order.products">
                         {{product.title}}
@@ -38,15 +58,22 @@
                         <h4>Summary</h4>
                     </div>
                     <div class="summary-info">
-                        <h6>Promo code: </h6>
-                        <h5>*under construction*</h5>
+                        <h6>Description: </h6>
+                        <form>
+                            <div class="form-group">
+                                <textarea ngDefaultControl [(ngModel)]="desc" name="description" id="desc" class="form-control" placeholder="Say something to us!"
+                                    rows="6"></textarea>
+                            </div>
+                        </form>
                     </div>
                     <div class="summary-total">
-                            <h6>Total: </h6>
-                            <h5 ngDefaultControl [(ngModel)]="sum">USD <b>{{sum}}</b></h5>
+                        <h6>Total: </h6>
+                        <h5 ngDefaultControl [(ngModel)]="sum">USD
+                            <b>{{sum}}</b>
+                        </h5>
                     </div>
                     <div class="summary-checkout">
-                        <button class="btn btn-checkout">Checkout</button>
+                        <button (click)="checkout()" class="btn btn-checkout">Checkout</button>
                     </div>
                 </div>
             </div>

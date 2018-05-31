@@ -1,5 +1,14 @@
 @import '~scss/vars';
 
+.no-products {
+    background-color: #19253f;
+    border: 2px solid #141d31;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    padding: 2rem;
+}
+
 .summary {
     background-color: #19253f;
     border: 2px solid #141d31;

@@ -6,5 +6,6 @@ export interface IOrder {
     description?: String,
     products?: IProduct[],
     user?: IUser,
-    delivered?: boolean
+    delivered?: boolean,
+    checkout?: boolean
 }

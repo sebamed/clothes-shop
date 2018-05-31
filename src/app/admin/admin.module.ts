@@ -12,6 +12,7 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AddProductComponent } from './admin-products/add-product/add-product.component';
 import { AdminProductsComponent } from './admin-products/admin-products.component';
 import { AdminUsersComponent } from './admin-users/admin-users.component';
+import { AdminOrdersComponent } from './admin-orders/admin-orders.component';
 
 @NgModule({
     declarations: [
@@ -20,7 +21,8 @@ import { AdminUsersComponent } from './admin-users/admin-users.component';
         AdminServicesComponent,
         AddProductComponent,
         AdminProductsComponent,
-        AdminUsersComponent
+        AdminUsersComponent,
+        AdminOrdersComponent
     ],
     imports: [
         AdminRoutingModule,
