@@ -22,7 +22,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let product of products | paginate: { itemsPerPage: 15, currentPage: p }" [routerLink]="['/product/', product.id]">
+                        <tr *ngFor="let product of products | paginate: { itemsPerPage: 15, currentPage: p }">
                             <th>
                                 <input type="checkbox" (click)="selectProduct(product)"/>
                             </th>

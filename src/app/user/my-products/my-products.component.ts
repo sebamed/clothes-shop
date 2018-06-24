@@ -5,6 +5,7 @@ import { IOrder } from "../../model/order.interface";
 import { IProduct } from "../../model/product.interface";
 import { OrderService } from "../../services/order.service";
 import { Router } from "@angular/router";
+import { ToastSerice } from "../../pages/shared/toast/toast.service";
 
 @Component({
     selector: 'user-myproducts',
@@ -21,7 +22,7 @@ export class MyProductsComponent implements OnInit, OnDestroy {
 
     desc: String = "";
 
-    constructor(private _user: UserService, private _order: OrderService, private _router: Router){
+    constructor(private _user: UserService, private _order: OrderService, private _router: Router, private _toast: ToastSerice){
 
     }
 
@@ -79,6 +80,7 @@ export class MyProductsComponent implements OnInit, OnDestroy {
         }, true);
         this.order = this._user.getCurrentUser().order;
         // TOAST
+        this._toast.addInfoToast('Order is sent to your email!');
         this._router.navigate(['/products/all']);
     }
 }
